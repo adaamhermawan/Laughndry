@@ -26,7 +26,7 @@
         </p>
         <a href="#harga"
             class="inline-block bg-secondary-container text-on-secondary-fixed px-8 sm:px-10 py-4 sm:py-5 rounded-full font-black text-lg sm:text-xl hover:scale-105 active:scale-95 transition-all relative z-10 shadow-lg">
-            Booking Sekarang
+            Order Sekarang
         </a>
     </div>
 </section>
@@ -42,15 +42,7 @@
                 Premium Laundry Editorial. Menyediakan layanan cuci berkualitas tinggi dengan perhatian pada detail dan
                 kenyamanan pelanggan.
             </p>
-            <div class="flex gap-4">
-                <?php foreach ($social_links as $s): ?>
-                    <a href="<?= $s['href'] ?>"
-                        class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center hover:bg-secondary-container transition-colors duration-300"
-                        aria-label="Social Link">
-                        <span class="material-symbols-outlined text-sm"><?= $s['icon'] ?></span>
-                    </a>
-                <?php endforeach; ?>
-            </div>
+
         </div>
 
         <!-- Contact -->
@@ -60,10 +52,12 @@
                 <?php foreach ($contact_info as $ci): ?>
                     <li class="flex items-center gap-3 text-emerald-100/80">
                         <?php if ($ci['icon'] === 'svg:instagram'): ?>
-                            <svg class="text-secondary-container" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
-                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
-                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                            <svg class="text-secondary-container" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
                             </svg>
                         <?php else: ?>
                             <span class="material-symbols-outlined text-secondary-container"><?= $ci['icon'] ?></span>
@@ -79,11 +73,11 @@
             <h4 class="text-lg sm:text-xl font-bold mb-6 sm:mb-8 text-secondary-container">LOKASI KAMI</h4>
             <div class="rounded-2xl overflow-hidden h-48 relative">
                 <img alt="Peta Lokasi" class="w-full h-full object-cover opacity-50"
-                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuC67t7Mz_pfITw0YP6AgaxWPmCd8zaLrhv-UQiG0j19ECwq_QkBwWYLlJqC_pHseQUxeHAHk1KdfWk3f7zUqlSgIZPlS-W6knjl1DtEzb5Sz_Sze0MX9Sm8Iga04MD70v2hRdIXG-BvtS3BNvugLuUXjLTamM551BPc4D4oQi_FgZum7iuzhn4t38lefXNVVPlxyr2ka_Ol40ZntwZY9580RU7X7M5K6PM9bhI8rqQ6orSGxD-K48lA5BGNOII-YFh-viMJRyt81fc" />
+                    src="assets/gambar/Basemap image.png" />
                 <div class="absolute inset-0 bg-primary/40 flex items-center justify-center">
                     <div
                         class="bg-surface p-3 sm:p-4 rounded-xl text-primary text-xs sm:text-sm font-bold shadow-xl text-center">
-                        Jl. Kebersihan No. 123, Jakarta Selatan
+                        Jl. Raya Puspitek No 18b, Kel. Buaran, Kec. Serpong, Kota Tangerang Selatan
                     </div>
                 </div>
             </div>

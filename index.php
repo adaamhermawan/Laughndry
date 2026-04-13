@@ -49,7 +49,7 @@ require_once __DIR__ . '/header.php';
 
         <a href="#harga"
             class="inline-flex items-center gap-3 bg-secondary-container text-on-secondary-fixed px-7 sm:px-8 py-3.5 sm:py-4 rounded-full font-black text-base sm:text-lg shadow-xl shadow-secondary-container/20 btn-press hero-text-animate-delay-3">
-            Coba Sekarang
+            Order Sekarang
             <span class="material-symbols-outlined">arrow_forward</span>
         </a>
     </div>

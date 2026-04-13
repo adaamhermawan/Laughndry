@@ -183,15 +183,8 @@ $nav_links = [
 
 // ─── Contact Info ───────────────────────────────────────────────────────────
 $contact_info = [
-    ['icon' => 'phone', 'text' => '+62 812-3456-7890'],
-    ['icon' => 'mail', 'text' => 'halo@laughndry.com'],
+    ['icon' => 'phone', 'text' => '+62 852-2096-6656'],
+    ['icon' => 'mail', 'text' => 'laughndry@gmail.com'],
     ['icon' => 'svg:instagram', 'text' => '@laughndry'],
-    ['icon' => 'schedule', 'text' => 'Setiap Hari: 07.00 - 21.00'],
-];
-
-// ─── Social Links ───────────────────────────────────────────────────────────
-$social_links = [
-    ['icon' => 'social_leaderboard', 'href' => '#'],
-    ['icon' => 'share', 'href' => '#'],
-    ['icon' => 'alternate_email', 'href' => '#'],
+    ['icon' => 'schedule', 'text' => 'Buka 24 Jam'],
 ];
