@@ -108,11 +108,11 @@
             <!-- Desktop links -->
             <div class="hidden md:flex items-center gap-8">
                 <?php foreach ($nav_links as $link): ?>
-                    <a href="<?= $link['href'] ?>"
-                        class="<?= $link['active']
-                            ? 'text-emerald-900 font-bold border-b-2 border-orange-400 pb-1'
-                            : 'text-emerald-800/70 hover:text-emerald-900' ?> hover:scale-105 transition-transform duration-200">
+                    <a href="<?= $link['href'] ?>" id="<?= $link['id'] ?>"
+                        class="nav-link-item hover:scale-105 transition-all duration-300 relative pb-1
+                        <?= $link['active'] ? 'text-emerald-900 font-bold active-link' : 'text-emerald-800/70 hover:text-emerald-900' ?>">
                         <?= $link['label'] ?>
+                        <span class="nav-indicator absolute left-0 bottom-0 w-full h-[2px] bg-secondary-container transition-transform origin-left duration-300 <?= $link['active'] ? 'scale-x-100' : 'scale-x-0' ?>"></span>
                     </a>
                 <?php endforeach; ?>
             </div>

@@ -160,16 +160,94 @@
         lastScroll = currentScroll;
     }, { passive: true });
 
-    // ── Smooth scroll for anchor links ──────────────────────────────────────
+    // ── Smooth scroll & Scroll to Top ───────────────────────────────────────
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
-            const target = document.querySelector(this.getAttribute('href'));
+            const href = this.getAttribute('href');
+            if (href === '#') {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                return;
+            }
+            
+            const target = document.querySelector(href);
             if (target) {
                 e.preventDefault();
                 target.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
         });
     });
+
+    // ── FAQ Accordion ───────────────────────────────────────────────────────
+    const faqBtns = document.querySelectorAll('.faq-btn');
+    faqBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const content = btn.nextElementSibling;
+            const icon = btn.querySelector('.faq-icon');
+            const isOpen = content.style.height && content.style.height !== '0px';
+
+            // Close all others
+            document.querySelectorAll('.faq-content').forEach(c => {
+                c.style.height = '0px';
+            });
+            document.querySelectorAll('.faq-icon').forEach(i => {
+                i.style.transform = 'rotate(0deg)';
+                i.classList.remove('bg-primary', 'text-on-primary');
+                i.classList.add('bg-surface-container', 'text-secondary-container');
+            });
+
+            if (!isOpen) {
+                content.style.height = content.scrollHeight + 'px';
+                icon.style.transform = 'rotate(45deg)';
+                icon.classList.remove('bg-surface-container', 'text-secondary-container');
+                icon.classList.add('bg-primary', 'text-on-primary');
+            }
+        });
+    });
+
+    // ── ScrollSpy for Mobile & Desktop Nav ────────────────────────────────
+    const sections = document.querySelectorAll('section[id]');
+    const navItems = document.querySelectorAll('.nav-link-item');
+
+    window.addEventListener('scroll', () => {
+        let current = '';
+        const scrollY = window.scrollY;
+
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop - 120;
+            const sectionHeight = section.offsetHeight;
+            if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+                current = section.getAttribute('id');
+            }
+        });
+
+        // Special case for home (top of page)
+        if (scrollY < 100) {
+            current = ''; // which corresponds to href="#"
+        }
+
+        navItems.forEach(item => {
+            const href = item.getAttribute('href');
+            const indicator = item.querySelector('.nav-indicator');
+            
+            // reset classes
+            item.classList.remove('text-emerald-900', 'font-bold', 'active-link');
+            item.classList.add('text-emerald-800/70');
+            if(indicator) {
+                indicator.classList.remove('scale-x-100');
+                indicator.classList.add('scale-x-0');
+            }
+            
+            if (href === '#' + current || (current === '' && href === '#')) {
+                item.classList.add('text-emerald-900', 'font-bold', 'active-link');
+                item.classList.remove('text-emerald-800/70');
+                if(indicator) {
+                    indicator.classList.add('scale-x-100');
+                    indicator.classList.remove('scale-x-0');
+                }
+            }
+        });
+    }, { passive: true });
 </script>
 
 </body>

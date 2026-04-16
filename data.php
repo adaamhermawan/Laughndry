@@ -29,38 +29,76 @@ $about_cards = [
 // ─── Service Cards ──────────────────────────────────────────────────────────
 $services = [
     [
-        'icon' => 'self_care',
-        'title' => 'Self Service',
-        'desc' => 'Mencuci & mengeringkan pakaian dengan Express! Tak perlu antri & menunggu lama.',
-
-    ],
-    [
         'icon' => 'iron',
-        'title' => 'Full Service (Setrika)',
-        'desc' => 'Serahkan segalanya pada kami. Cuci, kering, hingga setrika rapi siap pakai.',
+        'title' => 'Cuci - Setrika (Min 3kg)',
+        'desc' => 'Pakaian lengkap dicuci, disetrika dan dilipat rapih. Pewangi pakaian disediakan dari kami siap di pakai.',
 
     ],
     [
-        'icon' => 'inventory_2',
-        'title' => 'Satuan &amp; Kiloan',
-        'desc' => 'Dari baju harian hingga bed cover, kami tangani dengan teliti.',
-    ],
+        'icon' => 'styler',
+        'title' => 'Hanya Setrika (Min 3kg)',
+        'desc' => 'Bawa pakaian bersih, biar kami yang setrika pakaian Anda dengan wangi dan licin rapih untuk langsung dipakai.',
 
-    [
-        'icon' => 'local_shipping',
-        'title' => 'Pickup &amp; Delivery',
-        'desc' => 'Malas keluar rumah? Kami jemput dan antar kembali cucian Anda.',
-    ],
-    [
-        'icon' => 'dry_cleaning',
-        'title' => 'Cuci Kering',
-        'desc' => 'Proses pembersihan cepat untuk pakaian yang butuh perawatan ekstra.',
     ],
     [
         'icon' => 'checkroom',
-        'title' => 'Cuci Kering Lipat',
-        'desc' => 'Hemat waktu, kami lipat dengan rapi setelah kering.',
+        'title' => 'Cuci - Lipat (Min 3kg)',
+        'desc' => 'Pakaian kotor dicuci bersih, kering secara maksimal dengan mesin yang besar, lalu pelipatan rapi.',
     ],
+
+    [
+        'icon' => 'local_laundry_service',
+        'title' => 'Cuci - Kering',
+        'desc' => 'Pakaian kotor dicuci bersih lalu dikeringkan maksimal masuk mesin pengering tanpa lipat rapi.',
+    ],
+    [
+        'icon' => 'layers',
+        'title' => 'Cuci Combo',
+        'desc' => 'Kombinasi layanan cuci, kami keringkan lalu lipat rapih dan packing. Pakaian siap di pakai.',
+    ],
+    [
+        'icon' => 'bed',
+        'title' => 'Satuan Bedcover Seprei',
+        'desc' => 'Perawatan khusus yang detail untuk seprai selimut maksimal nyaman untuk tidur dengan pulas.',
+    ],
+    [
+        'icon' => 'styler',
+        'title' => 'Satuan',
+        'desc' => 'Perawatan khusus untuk pakaian harian dan menjaga kualitas baju kesayangan anda tetap awet dan nyaman.',
+    ],
+    [
+        'icon' => 'dry_cleaning',
+        'title' => 'Dry Clean',
+        'desc' => 'Perawatan khusus tanpa menggunakan media air agar pakaian bebas kerusakan dan warna tetap utuh.',
+    ],
+];
+
+// ─── FAQ ───────────────────────────────────────────────────────────────────
+$faqs = [
+    [
+        'q' => 'Layanan apa saja yang tersedia di Laughndry?',
+        'a' => 'Kami menyediakan berbagai pilihan, seperti:<br>· Self service (cuci kering sendiri): Layanan cepat dan praktis.<br>· Terima Beres (Drop off): Layanan cuci kering lipat dan cuci setrika.<br>· Layanan Satuan: Pilihan tepat untuk bahan pakaian yang sensitif.'
+    ],
+    [
+        'q' => 'Berapa lama waktu pengerjaannya?',
+        'a' => 'Tergantung dengan layanan yang dipilih, pengerjaan dapat selesai dalam hitungan jam hingga 1-2 hari kerja untuk hasil yang lebih maksimal.'
+    ],
+    [
+        'q' => 'Apakah Laughndry menerima cuci bedcover atau gorden?',
+        'a' => 'Tentu saja! Mesin kami memiliki kapasitas yang memadai untuk mencuci item besar seperti bedcover dan gorden.'
+    ],
+    [
+        'q' => 'Apakah saya harus membawa deterjen sendiri untuk Coin Laundry?',
+        'a' => 'Tidak perlu repot membawa deterjen sendiri, karena layanan kami sudah mencakup deterjen cair dan pewangi berkualitas tinggi.'
+    ],
+    [
+        'q' => 'Apakah ada area tunggu yang nyaman?',
+        'a' => 'Tentu saja ada! Kami menyediakan area tunggu yang dilengkapi dengan tempat duduk yang nyaman dan bersih.'
+    ],
+    [
+        'q' => 'Bagaimana cara memesan layanan Laughndry?',
+        'a' => 'Anda dapat memesan layanan kami melalui WhatsApp atau langsung datang ke outlet kami di Serpong.'
+    ]
 ];
 
 // ─── Self-Service Pricing ───────────────────────────────────────────────────
@@ -174,11 +212,11 @@ $testimonials = [
 
 // ─── Navigation Links ──────────────────────────────────────────────────────
 $nav_links = [
-    ['label' => 'Home', 'href' => '#', 'active' => true],
-    ['label' => 'Tentang', 'href' => '#tentang', 'active' => false],
-    ['label' => 'Layanan', 'href' => '#layanan', 'active' => false],
-    ['label' => 'Harga', 'href' => '#harga', 'active' => false],
-    ['label' => 'Ulasan', 'href' => '#ulasan', 'active' => false],
+    ['label' => 'Home', 'href' => '#', 'active' => true, 'id' => 'nav-home'],
+    ['label' => 'Tentang', 'href' => '#tentang', 'active' => false, 'id' => 'nav-tentang'],
+    ['label' => 'Layanan', 'href' => '#layanan', 'active' => false, 'id' => 'nav-layanan'],
+    ['label' => 'Ulasan', 'href' => '#ulasan', 'active' => false, 'id' => 'nav-ulasan'],
+    ['label' => 'Harga', 'href' => '#harga', 'active' => false, 'id' => 'nav-harga'],
 ];
 
 // ─── Contact Info ───────────────────────────────────────────────────────────

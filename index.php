@@ -21,6 +21,7 @@
 /*tes*/
 /*tes*/
 
+
 // Load all data arrays
 require_once __DIR__ . '/data.php';
 
@@ -48,11 +49,16 @@ require_once __DIR__ . '/header.php';
             terkini dan keharuman tahan lama yang bikin harimu lebih ceria.
         </p>
 
-        <a href="#harga"
-            class="inline-flex items-center gap-3 bg-secondary-container text-on-secondary-fixed px-7 sm:px-8 py-3.5 sm:py-4 rounded-full font-black text-base sm:text-lg shadow-xl shadow-secondary-container/20 btn-press hero-text-animate-delay-3">
-            Order Sekarang
-            <span class="material-symbols-outlined">arrow_forward</span>
-        </a>
+        <div class="flex flex-wrap items-center gap-4 hero-text-animate-delay-3">
+            <a href="#layanan"
+                class="inline-flex items-center gap-2 bg-secondary-container text-on-secondary-fixed px-6 py-3 sm:px-7 sm:py-3.5 rounded-full font-black text-base shadow-xl shadow-secondary-container/20 hover:scale-105 active:scale-95 transition-all">
+                <span class="material-symbols-outlined text-xl">shopping_cart</span> Order Sekarang
+            </a>
+            <a href="#harga"
+                class="inline-flex items-center gap-2 bg-transparent border-2 border-primary text-primary px-6 py-2.5 sm:px-7 sm:py-3 rounded-full font-bold text-base hover:bg-primary/5 active:scale-95 transition-all">
+                Lihat Harga <span class="material-symbols-outlined text-lg">arrow_forward_ios</span>
+            </a>
+        </div>
     </div>
 
     <div class="relative hero-image-animate">
@@ -123,108 +129,6 @@ require_once __DIR__ . '/header.php';
     </div>
 </section>
 
-
-<!-- ═══════════════════════════ HARGA SECTION ═══════════════════════════ -->
-<section class="py-16 sm:py-24 bg-surface-container-low" id="harga">
-    <div class="max-w-7xl mx-auto px-4 sm:px-8 text-center">
-
-        <div class="reveal">
-            <h2 class="text-3xl sm:text-4xl font-black text-primary mb-12 sm:mb-16">Daftar Harga Laughndry</h2>
-        </div>
-
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 mb-12 sm:mb-16 stagger-children">
-
-            <!-- ── Self Service Table ──────────────────────────────── -->
-            <div class="overflow-hidden rounded-3xl shadow-lg bg-surface-container-lowest card-hover stagger-item">
-                <div
-                    class="bg-primary-container py-5 sm:py-6 text-on-primary font-bold text-lg sm:text-xl flex items-center justify-between px-6 sm:px-8">
-                    <div class="flex flex-col items-start">
-                        <span class="text-[10px] uppercase tracking-widest opacity-80">LAYANAN MANDIRI</span>
-                        <span>Self Service</span>
-                    </div>
-                    <span class="material-symbols-outlined">dry_cleaning</span>
-                </div>
-                <div class="p-3 sm:p-4">
-                    <table class="w-full text-left">
-                        <tbody class="divide-y divide-surface-variant">
-                            <?php foreach ($self_service_prices as $item): ?>
-                                <tr class="price-row hover:bg-surface-container transition-colors">
-                                    <td class="py-3 sm:py-4 px-4 sm:px-6">
-                                        <p class="font-bold text-primary"><?= $item['name'] ?></p>
-                                        <p class="text-xs text-on-surface-variant"><?= $item['desc'] ?></p>
-                                    </td>
-                                    <td
-                                        class="py-3 sm:py-4 px-4 sm:px-6 text-right font-black text-secondary-container text-lg sm:text-xl whitespace-nowrap">
-                                        <?= $item['price'] ?>
-                                        <?php if ($item['unit']): ?>
-                                            <span class="text-sm text-on-surface-variant"><?= $item['unit'] ?></span>
-                                        <?php endif; ?>
-                                    </td>
-                                </tr>
-                            <?php endforeach; ?>
-                        </tbody>
-                    </table>
-                    <div
-                        class="mt-4 p-4 sm:p-6 bg-surface-container-low rounded-2xl flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
-                        <span
-                            class="font-black text-primary tracking-tight text-sm sm:text-base"><?= $self_service_bundle['label'] ?></span>
-                        <span class="font-black text-secondary-container text-xl sm:text-2xl whitespace-nowrap">
-                            <?= $self_service_bundle['price'] ?>
-                            <span class="text-sm text-on-surface-variant"><?= $self_service_bundle['unit'] ?></span>
-                        </span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- ── Drop Off Table ─────────────────────────────────── -->
-            <div class="overflow-hidden rounded-3xl shadow-lg bg-surface-container-lowest card-hover stagger-item">
-                <div
-                    class="bg-primary-container py-5 sm:py-6 text-on-primary font-bold text-lg sm:text-xl flex items-center justify-between px-6 sm:px-8">
-                    <div class="flex flex-col items-start">
-                        <span class="text-[10px] uppercase tracking-widest opacity-80">TERIMA BERES</span>
-                        <span>Drop Off</span>
-                    </div>
-                    <span class="material-symbols-outlined">inventory_2</span>
-                </div>
-                <div class="p-3 sm:p-4">
-                    <table class="w-full text-left">
-                        <tbody class="divide-y divide-surface-variant">
-                            <?php foreach ($dropoff_prices as $item): ?>
-                                <tr class="price-row hover:bg-surface-container transition-colors">
-                                    <td class="py-3 sm:py-4 px-4 sm:px-6">
-                                        <p class="font-bold text-primary"><?= $item['name'] ?></p>
-                                        <p class="text-xs text-on-surface-variant"><?= $item['desc'] ?></p>
-                                    </td>
-                                    <td
-                                        class="py-3 sm:py-4 px-4 sm:px-6 text-right font-black text-secondary-container text-lg sm:text-xl whitespace-nowrap">
-                                        <?= $item['price'] ?>
-                                        <?php if ($item['unit']): ?>
-                                            <span class="text-sm text-on-surface-variant"><?= $item['unit'] ?></span>
-                                        <?php endif; ?>
-                                    </td>
-                                </tr>
-                            <?php endforeach; ?>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-
-        <!-- ── Pricing Info Cards ────────────────────────────────── -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 stagger-children">
-            <?php foreach ($pricing_info as $info): ?>
-                <div class="bg-surface-container-lowest p-6 sm:p-8 rounded-2xl shadow-sm text-left card-hover stagger-item">
-                    <span
-                        class="material-symbols-outlined text-primary text-3xl mb-4 icon-bounce"><?= $info['icon'] ?></span>
-                    <h4 class="font-bold text-primary mb-2"><?= $info['title'] ?></h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed"><?= $info['desc'] ?></p>
-                </div>
-            <?php endforeach; ?>
-        </div>
-    </div>
-</section>
-
-
 <!-- ═══════════════════════════ ULASAN SECTION ═══════════════════════════ -->
 <section class="py-16 sm:py-24 bg-surface" id="ulasan">
     <div class="max-w-7xl mx-auto px-4 sm:px-8">
@@ -255,6 +159,36 @@ require_once __DIR__ . '/header.php';
                         <div>
                             <p class="font-bold text-primary"><?= $t['name'] ?></p>
                             <p class="text-xs text-on-surface-variant"><?= $t['role'] ?></p>
+                        </div>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════════════ FAQ SECTION ═══════════════════════════ -->
+<section class="py-16 sm:py-24 bg-surface-container-low" id="faq">
+    <div class="max-w-4xl mx-auto px-4 sm:px-8">
+        <div class="mb-12 sm:mb-16 reveal">
+            <h2 class="text-3xl sm:text-4xl font-black text-primary">Frequently<br>Asked Questions</h2>
+        </div>
+
+        <div class="flex flex-col gap-4 stagger-children">
+            <?php foreach ($faqs as $index => $faq): ?>
+                <div class="bg-surface-container-lowest rounded-3xl shadow-sm overflow-hidden stagger-item faq-item"
+                    data-index="<?= $index ?>">
+                    <button
+                        class="faq-btn w-full px-6 py-5 sm:px-8 sm:py-6 flex justify-between items-center text-left focus:outline-none">
+                        <span class="font-bold text-primary text-base sm:text-lg pr-4"><?= $faq['q'] ?></span>
+                        <div
+                            class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center shrink-0 transition-transform duration-300 faq-icon text-secondary-container font-black">
+                            +
+                        </div>
+                    </button>
+                    <div class="faq-content h-0 overflow-hidden transition-all duration-300 px-6 sm:px-8">
+                        <div class="pb-6 text-on-surface-variant leading-relaxed text-sm sm:text-base">
+                            <?= $faq['a'] ?>
                         </div>
                     </div>
                 </div>
