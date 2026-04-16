@@ -31,45 +31,61 @@ $services = [
     [
         'icon' => 'iron',
         'title' => 'Cuci - Setrika (Min 3kg)',
-        'desc' => 'Pakaian lengkap dicuci, disetrika dan dilipat rapih. Pewangi pakaian disediakan dari kami siap di pakai.',
+        'desc' => 'Paket lengkap perawatan pakaian
+harian Anda. Bersih maksimal dan rapi
+siap pakai.',
 
     ],
     [
         'icon' => 'styler',
         'title' => 'Hanya Setrika (Min 3kg)',
-        'desc' => 'Bawa pakaian bersih, biar kami yang setrika pakaian Anda dengan wangi dan licin rapih untuk langsung dipakai.',
+        'desc' => 'Cucian sudah bersih? Serahkan urusan
+menyetrika yang melelahkan kepada
+tenaga ahli kami.',
 
     ],
     [
         'icon' => 'checkroom',
         'title' => 'Cuci - Lipat (Min 3kg)',
-        'desc' => 'Pakaian kotor dicuci bersih, kering secara maksimal dengan mesin yang besar, lalu pelipatan rapi.',
+        'desc' => 'Solusi praktis untuk pakaian santai.
+Cuci bersih dan kering, langsung dilipat
+rapi.',
     ],
 
     [
         'icon' => 'local_laundry_service',
         'title' => 'Cuci - Kering',
-        'desc' => 'Pakaian kotor dicuci bersih lalu dikeringkan maksimal masuk mesin pengering tanpa lipat rapi.',
+        'desc' => 'Layanan cepat kering untuk Anda yang
+memiliki mobilitas tinggi dan butuh hasil
+instan.',
     ],
     [
         'icon' => 'layers',
-        'title' => 'Cuci Combo',
-        'desc' => 'Kombinasi layanan cuci, kami keringkan lalu lipat rapih dan packing. Pakaian siap di pakai.',
+        'title' => 'Self Service',
+        'desc' => 'Gunakan mesin modern kami secara
+mandiri. Lebih ekonomis dan sesuai
+privasi Anda.',
     ],
     [
         'icon' => 'bed',
         'title' => 'Satuan Bedcover Seprei',
-        'desc' => 'Perawatan khusus yang detail untuk seprai selimut maksimal nyaman untuk tidur dengan pulas.',
+        'desc' => 'Pembersihan mendalam untuk
+perlengkapan tidur Anda agar istirahat
+tetap higienis.',
     ],
     [
         'icon' => 'styler',
         'title' => 'Satuan',
-        'desc' => 'Perawatan khusus untuk pakaian harian dan menjaga kualitas baju kesayangan anda tetap awet dan nyaman.',
+        'desc' => 'Perawatan khusus untuk pakaian
+branded, jas, gaun, atau item
+kesayangan lainnya.',
     ],
     [
         'icon' => 'dry_cleaning',
         'title' => 'Dry Clean',
-        'desc' => 'Perawatan khusus tanpa menggunakan media air agar pakaian bebas kerusakan dan warna tetap utuh.',
+        'desc' => 'Pencucian tanpa air menggunakan
+bahan khusus untuk menjaga serat kain
+tetap awet.',
     ],
 ];
 
@@ -101,90 +117,42 @@ $faqs = [
     ]
 ];
 
-// ─── Self-Service Pricing ───────────────────────────────────────────────────
-$self_service_prices = [
-    [
-        'name' => 'Cuci',
-        'desc' => 'Pencucian mesin standar',
-        'price' => '1.000',
-        'unit' => '/kg',
-    ],
-    [
-        'name' => 'Kering',
-        'desc' => 'Pengeringan suhu optimal',
-        'price' => '1.000',
-        'unit' => '/kg',
-    ],
-];
-
-$self_service_bundle = [
-    'label' => 'BUNDLE CUCI KERING',
-    'price' => '2.000',
-    'unit' => '/kg',
-];
-
-// ─── Drop-Off Pricing ──────────────────────────────────────────────────────
-$dropoff_prices = [
-    [
-        'name' => 'Cuci Kering (5kg)',
-        'desc' => 'Ideal untuk harian',
-        'price' => '20.000',
-        'unit' => '',
-    ],
-    [
-        'name' => 'Cuci Kering (10kg)',
-        'desc' => 'Paket keluarga',
-        'price' => '30.000',
-        'unit' => '',
-    ],
-    [
-        'name' => 'Cuci Kering Lipat',
-        'desc' => 'Siap masuk lemari',
-        'price' => '6.000',
-        'unit' => '/kg',
-    ],
-];
-
-// ─── Pricing Info Boxes ─────────────────────────────────────────────────────
-$pricing_info = [
-    [
-        'icon' => 'local_shipping',
-        'title' => 'Antar Jemput',
-        'desc' => 'Minimal order untuk layanan pickup &amp; delivery adalah 5kg. Pastikan pakaian Anda siap saat kurir kami tiba.',
-    ],
-    [
-        'icon' => 'location_on',
-        'title' => 'Radius Biaya',
-        'desc' => 'Jarak pengantaran 2km hingga 3km akan dikenakan biaya tambahan sebesar Rp. 5.000 saja.',
-    ],
-    [
-        'icon' => 'check_circle',
-        'title' => 'Kualitas Terjamin',
-        'desc' => 'Setiap proses menggunakan deterjen ramah lingkungan dan teknik pengeringan yang menjaga serat kain.',
-    ],
-];
-
 // ─── Testimonials ───────────────────────────────────────────────────────────
 $testimonials = [
     [
         'stars' => 5,
-        'quote' => '"Laundry paling sat-set! Wanginya awet banget meski udah seminggu di lemari. CS-nya juga ramah banget pas pick up."',
-        'initials' => 'AN',
-        'name' => 'Andi Nugroho',
+        'quote' => 'Pertama nyuci di sini dan hasilnya puas
+banget... dari segi harga relatif terjangkau
+lah,dari segi pelayanan,karyawan yg
+incharge helpfull dan ramah bgt. untuk
+orang yg baru pertama laundry coin kaya
+gw di guidance kok sama petugas nya.',
+        'initials' => 'RA',
+        'name' => 'Rama Abil Clemira',
         'role' => '',
     ],
     [
         'stars' => 5,
-        'quote' => 'Suka banget sama layanan Express-nya. Baju kerja yang harus dipake mendadak bisa langsung beres dan rapi jali!',
-        'initials' => 'SP',
-        'name' => 'Sari Putri',
+        'quote' => 'Baru pertama kali ke sini, Alhamdulillah
+pelayanan nya baik, gak terlalu ngantri
+juga. Sekarang mah udah 4x bolak balik ke
+sini. Di kala musim hujan, cucian numpuk,
+tapi males nyuci pake tangan ya
+Laughndry Coin solusinya',
+        'initials' => 'RA',
+        'name' => 'Rosita Anindya',
         'role' => '',
     ],
     [
         'stars' => 5,
-        'quote' => 'Harga bersahabat tapi kualitas mewah. Bed cover saya jadi lembut banget dan bersih sempurna. Recommended bgt!',
-        'initials' => 'BM',
-        'name' => 'Budi Mahendra',
+        'quote' => 'Sudah buka 24Jam... Lama waktu untuk
+Cuci 30menit. Lama waktu pengering
+50menit. Jadi total waktu untuk cuci
+sekitar 80 menit, belum termasuk antrian
+mesin. Dapat GRATIS parfum sehabis cuci,
+ambil di meja kasir.',
+        'initials' => 'DH',
+        'name' => 'Daniel Hendrato',
         'role' => '',
     ],
     [
@@ -216,7 +184,116 @@ $nav_links = [
     ['label' => 'Tentang', 'href' => '#tentang', 'active' => false, 'id' => 'nav-tentang'],
     ['label' => 'Layanan', 'href' => '#layanan', 'active' => false, 'id' => 'nav-layanan'],
     ['label' => 'Ulasan', 'href' => '#ulasan', 'active' => false, 'id' => 'nav-ulasan'],
-    ['label' => 'Harga', 'href' => '#harga', 'active' => false, 'id' => 'nav-harga'],
+    ['label' => 'Harga', 'href' => 'harga.php', 'active' => false, 'id' => 'nav-harga'],
+];
+
+// ─── Full Price List (harga.php) ───────────────────────────────────────────
+$full_price_list = [
+    [
+        'category' => 'Cuci - Setrika Min 3 Kg',
+        'desc' => 'Pakaian lengkap dicuci, disetrika dan dilipat rapih. Pewangi pakaian disediakan dari kami siap pakai.',
+        'items' => [
+            ['name' => 'Express 6 Jam', 'price' => 'Rp 14.000 /kg'],
+            ['name' => 'SHS Satu Hari Saja (1 Hari)', 'price' => 'Rp 9.500 /kg'],
+            ['name' => 'Reguler (3 Hari)', 'price' => 'Rp 8.000 /kg'],
+            ['name' => 'Paket Hemat 30kg / Bulan', 'price' => 'Rp 235.000'],
+            ['name' => 'Express Khusus)', 'price' => 'Rp 25.000 /kg'],
+            ['name' => 'Express VIP (3 Jam Selesai)', 'price' => 'Rp 30.000 /kg'],
+        ]
+    ],
+    [
+        'category' => 'Hanya Setrika Min 3 Kg',
+        'desc' => 'Bawa pakaian bersih, biar kami yang setrika pakaian Anda dengan wangi dan licin rapih untuk langsung dipakai.',
+        'items' => [
+            ['name' => 'Reguler 3 Hari', 'price' => 'Rp 8.000 /kg'],
+            ['name' => 'Kilat 1 Hari', 'price' => 'Rp 12.000 /kg'],
+            ['name' => 'Express Pagi Sore Selesai', 'price' => 'Rp 15.000 /kg'],
+            ['name' => 'Express Khusus Suhu Malam', 'price' => 'Rp 20.000 /kg'],
+            ['name' => 'Express VIP 3 Jam Selesai', 'price' => 'Rp 25.000 /kg'],
+        ]
+    ],
+    [
+        'category' => 'Cuci Lipat 3 Kg',
+        'desc' => 'Pakaian kotor dicuci bersih, kering secara maksimal dengan mesin yang besar, lalu pelipatan rapi.',
+        'items' => [
+            ['name' => 'Reguler 3 Hari', 'price' => 'Rp 8.000 /kg'],
+            ['name' => 'Express 1 Hari', 'price' => 'Rp 15.000 /kg'],
+        ]
+    ],
+    [
+        'category' => 'Cuci Kering',
+        'desc' => 'Pakaian kotor dicuci bersih lalu dikeringkan maksimal',
+        'items' => [
+            ['name' => 'Reguler 3 Hari (5 Kg)', 'price' => 'Rp 25.000'],
+            ['name' => 'Reguler 3 Hari (10Kg)', 'price' => 'Rp 45.000'],
+            ['name' => 'Express 1 Hari (5Kg)', 'price' => 'Rp 35.000'],
+            ['name' => 'Express 1 Hari (10Kg)', 'price' => 'Rp 65.000'],
+        ]
+    ],
+    [
+        'category' => 'Self Service',
+        'desc' => 'Cuci dan keringkan mandiri tanpa lipat',
+        'items' => [
+            ['name' => 'Cuci 5 Kg', 'price' => 'Rp 15.000'],
+            ['name' => 'Kering 5 Kg', 'price' => 'Rp 15.000'],
+        ]
+    ],
+    [
+        'category' => 'Dry Clean',
+        'desc' => 'Perawatan khusus tanpa air untuk pakaian bebas kerusakan',
+        'items' => [
+            ['name' => 'Pakaian Satuan', 'price' => 'Rp 35.000'],
+            ['name' => 'Jas / Tuxedo', 'price' => 'Rp 55.000'],
+            ['name' => 'Gaun / Kebaya', 'price' => 'Rp 75.000'],
+        ]
+    ],
+    [
+        'category' => 'Satuan Bedcover - Seprei',
+        'desc' => 'Perawatan khusus yang detail',
+        'items' => [
+            ['name' => 'Bedcover Single', 'price' => 'Rp 30.000'],
+            ['name' => 'Bedcover Double', 'price' => 'Rp 40.000'],
+            ['name' => 'Selimut Kecil', 'price' => 'Rp 25.000'],
+            ['name' => 'Selimut Besar', 'price' => 'Rp 35.000'],
+            ['name' => 'Seprei (Set + Sarung Bantal 1)', 'price' => 'Rp 20.000'],
+            ['name' => 'Seprei (Set + Sarung Bantal 2)', 'price' => 'Rp 25.000'],
+            ['name' => 'Seprei (Set + Sarung Guling 2)', 'price' => 'Rp 30.000'],
+            ['name' => 'Boneka Kecil / Sedang 1', 'price' => 'Rp 15.000'],
+            ['name' => 'Boneka Besar / Jumbo 1', 'price' => 'Rp 25.000'],
+        ]
+    ],
+    [
+        'category' => 'Satuan',
+        'desc' => 'Detail perawatan pakaian harian',
+        'items' => [
+            ['name' => 'Kemeja / Kaos', 'price' => 'Rp 15.000'],
+            ['name' => 'Kemeja Formal', 'price' => 'Rp 20.000'],
+            ['name' => 'Celana Panjang Kain / Jeans', 'price' => 'Rp 25.000'],
+            ['name' => 'Gamis', 'price' => 'Rp 30.000'],
+            ['name' => 'Kaos Dalam / Singlet', 'price' => 'Rp 10.000'],
+            ['name' => 'Celana Dalam', 'price' => 'Rp 10.000'],
+            ['name' => 'Pakaian Dalam / Set', 'price' => 'Rp 15.000'],
+            ['name' => 'Kaos Kaki / Tangan', 'price' => 'Rp 10.000'],
+            ['name' => 'Handuk Kecil', 'price' => 'Rp 10.000'],
+            ['name' => 'Handuk Besar', 'price' => 'Rp 20.000'],
+            ['name' => 'Topi', 'price' => 'Rp 15.000'],
+            ['name' => 'Sajadah / Mukena', 'price' => 'Rp 25.000'],
+            ['name' => 'Jaket Kulit', 'price' => 'Rp 50.000'],
+            ['name' => 'Jaket Bulu Angsa', 'price' => 'Rp 65.000'],
+            ['name' => 'Sepatu Sneakers 1 Pasang', 'price' => 'Rp 35.000'],
+            ['name' => 'Sepatu / Boots 1 Pasang', 'price' => 'Rp 45.000'],
+            ['name' => 'Tas Ransel / Selempang', 'price' => 'Rp 35.000'],
+            ['name' => 'Gorden Tipis', 'price' => 'Rp 15.000'],
+            ['name' => 'Gorden Tebal / Vitrase', 'price' => 'Rp 20.000'],
+            ['name' => 'Sarung Bantal / Guling', 'price' => 'Rp 10.000'],
+            ['name' => 'Bantal / Guling', 'price' => 'Rp 25.000'],
+            ['name' => 'Helm Half Face', 'price' => 'Rp 20.000'],
+            ['name' => 'Helm Full Face', 'price' => 'Rp 25.000'],
+            ['name' => 'Stroller Bayi', 'price' => 'Rp 75.000'],
+            ['name' => 'Koper Kecil / Sedang', 'price' => 'Rp 55.000'],
+            ['name' => 'Koper Besar', 'price' => 'Rp 75.000'],
+        ]
+    ]
 ];
 
 // ─── Contact Info ───────────────────────────────────────────────────────────

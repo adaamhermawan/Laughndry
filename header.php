@@ -5,6 +5,9 @@
  * Outputs <!DOCTYPE html>, <head>, opening <body>, and the sticky navbar.
  * Expects $nav_links to be available (included from data.php before this file).
  */
+$is_harga = basename($_SERVER['PHP_SELF']) === 'harga.php';
+$logo_href = $is_harga ? 'index.php#' : '#';
+$order_href = $is_harga ? 'index.php#layanan' : '#layanan';
 ?>
 <!DOCTYPE html>
 <html lang="id">
@@ -101,25 +104,31 @@
         <div class="flex justify-between items-center w-full px-4 sm:px-8 py-4 max-w-7xl mx-auto">
 
             <!-- Logo -->
-            <a href="#" class="text-xl sm:text-2xl font-black text-emerald-900 flex items-center gap-2">
+            <a href="<?= $logo_href ?>" class="text-xl sm:text-2xl font-black text-emerald-900 flex items-center gap-2">
                 <img src="assets/gambar/LOGO.png" alt="Laughndry Logo" class="h-20 w-auto" />
             </a>
 
             <!-- Desktop links -->
             <div class="hidden md:flex items-center gap-8">
-                <?php foreach ($nav_links as $link): ?>
-                    <a href="<?= $link['href'] ?>" id="<?= $link['id'] ?>"
+                <?php foreach ($nav_links as $link): 
+                    $href = $link['href'];
+                    if ($is_harga && $href !== 'harga.php') {
+                        $href = 'index.php' . $href;
+                    }
+                    $is_active = ($is_harga && $link['label'] === 'Harga') || (!$is_harga && $link['active']);
+                ?>
+                    <a href="<?= $href ?>" id="<?= $link['id'] ?>"
                         class="nav-link-item hover:scale-105 transition-all duration-300 relative pb-1
-                        <?= $link['active'] ? 'text-emerald-900 font-bold active-link' : 'text-emerald-800/70 hover:text-emerald-900' ?>">
+                        <?= $is_active ? 'text-emerald-900 font-bold active-link' : 'text-emerald-800/70 hover:text-emerald-900' ?>">
                         <?= $link['label'] ?>
-                        <span class="nav-indicator absolute left-0 bottom-0 w-full h-[2px] bg-secondary-container transition-transform origin-left duration-300 <?= $link['active'] ? 'scale-x-100' : 'scale-x-0' ?>"></span>
+                        <span class="nav-indicator absolute left-0 bottom-0 w-full h-[2px] bg-secondary-container transition-transform origin-left duration-300 <?= $is_active ? 'scale-x-100' : 'scale-x-0' ?>"></span>
                     </a>
                 <?php endforeach; ?>
             </div>
 
             <!-- CTA + hamburger -->
             <div class="flex items-center gap-3">
-                <a href="#harga"
+                <a href="<?= $order_href ?>"
                     class="hidden sm:inline-block bg-primary text-on-primary px-6 py-2.5 rounded-full font-bold hover:scale-105 active:scale-95 transition-all">
                     Order Sekarang
                 </a>
@@ -139,14 +148,20 @@
         <div id="mobile-menu"
             class="md:hidden max-h-0 overflow-hidden transition-all duration-500 ease-in-out bg-white/95 backdrop-blur-lg">
             <div class="flex flex-col gap-2 px-6 py-4">
-                <?php foreach ($nav_links as $link): ?>
-                    <a href="<?= $link['href'] ?>" class="mobile-nav-link py-3 px-4 rounded-xl text-lg font-semibold
-                          <?= $link['active'] ? 'text-primary bg-primary-fixed/30' : 'text-on-surface-variant hover:bg-surface-container' ?>
+                <?php foreach ($nav_links as $link): 
+                    $href = $link['href'];
+                    if ($is_harga && $href !== 'harga.php') {
+                        $href = 'index.php' . $href;
+                    }
+                    $is_active = ($is_harga && $link['label'] === 'Harga') || (!$is_harga && $link['active']);
+                ?>
+                    <a href="<?= $href ?>" class="mobile-nav-link py-3 px-4 rounded-xl text-lg font-semibold
+                          <?= $is_active ? 'text-primary bg-primary-fixed/30' : 'text-on-surface-variant hover:bg-surface-container' ?>
                           transition-colors duration-200">
                         <?= $link['label'] ?>
                     </a>
                 <?php endforeach; ?>
-                <a href="#harga"
+                <a href="<?= $order_href ?>"
                     class="mt-2 text-center bg-primary text-on-primary px-6 py-3 rounded-full font-bold">Order
                     Sekarang</a>
             </div>

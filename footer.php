@@ -6,6 +6,7 @@
  */
 ?>
 
+<?php if (!isset($is_harga) || !$is_harga): ?>
 <!-- ═══════════════════════════ CTA BANNER ═══════════════════════════ -->
 <section class="px-4 sm:px-8 pb-16 sm:pb-24 reveal">
     <div
@@ -24,12 +25,13 @@
             Jangan biarkan cucian kotor menumpuk dan merusak mood harimu. Hubungi kami sekarang dan biarkan para ahli
             yang menanganinya!
         </p>
-        <a href="#harga"
+        <a href="<?= $order_href ?? '#layanan' ?>"
             class="inline-block bg-secondary-container text-on-secondary-fixed px-8 sm:px-10 py-4 sm:py-5 rounded-full font-black text-lg sm:text-xl hover:scale-105 active:scale-95 transition-all relative z-10 shadow-lg">
             Order Sekarang
         </a>
     </div>
 </section>
+<?php endif; ?>
 
 <!-- ═══════════════════════════ FOOTER ═══════════════════════════ -->
 <footer class="bg-primary text-on-primary pt-16 sm:pt-20 pb-10">
@@ -210,6 +212,8 @@
     const navItems = document.querySelectorAll('.nav-link-item');
 
     window.addEventListener('scroll', () => {
+        if (window.location.pathname.endsWith('harga.php')) return;
+        
         let current = '';
         const scrollY = window.scrollY;
 

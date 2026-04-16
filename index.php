@@ -45,8 +45,7 @@ require_once __DIR__ . '/header.php';
 
         <p
             class="text-base sm:text-lg text-on-surface-variant mb-8 sm:mb-10 max-w-lg leading-relaxed hero-text-animate-delay-2">
-            Cucian yang bikin stress jadi beres?! Serahkan pada kami! Nikmati layanan laundry premium dengan teknologi
-            terkini dan keharuman tahan lama yang bikin harimu lebih ceria.
+            Cucian yang bikin stress jadi beres!! Nikmati waktu luangmu, biar kami yg urus sisanya.
         </p>
 
         <div class="flex flex-wrap items-center gap-4 hero-text-animate-delay-3">
@@ -54,7 +53,7 @@ require_once __DIR__ . '/header.php';
                 class="inline-flex items-center gap-2 bg-secondary-container text-on-secondary-fixed px-6 py-3 sm:px-7 sm:py-3.5 rounded-full font-black text-base shadow-xl shadow-secondary-container/20 hover:scale-105 active:scale-95 transition-all">
                 <span class="material-symbols-outlined text-xl">shopping_cart</span> Order Sekarang
             </a>
-            <a href="#harga"
+            <a href="harga.php"
                 class="inline-flex items-center gap-2 bg-transparent border-2 border-primary text-primary px-6 py-2.5 sm:px-7 sm:py-3 rounded-full font-bold text-base hover:bg-primary/5 active:scale-95 transition-all">
                 Lihat Harga <span class="material-symbols-outlined text-lg">arrow_forward_ios</span>
             </a>
