@@ -16,6 +16,45 @@ require_once __DIR__ . '/header.php';
     </div>
 </section>
 
+<!-- Icon Keranjang Kuning dengan Notifikasi -->
+<div class="icon-container fixed bottom-4 right-4 z-50">
+    <a href="#" id="cart-link" class="relative">
+        <span class="material-symbols-outlined text-yellow-500 text-5xl font-bold">shopping_cart</span>
+        <span id="cart-count" class="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold w-6 h-6 flex items-center justify-center rounded-full hidden">0</span>
+    </a>
+</div>
+
+<script>
+    // Simpan cart di localStorage dan redirect ke daftar-laundry.php dengan data
+    document.addEventListener('DOMContentLoaded', () => {
+        const cartCount = document.getElementById('cart-count');
+        const items = document.querySelectorAll('.add-to-cart');
+        const cartLink = document.getElementById('cart-link');
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        let count = cart.length;
+        if (count > 0) {
+            cartCount.textContent = count;
+            cartCount.classList.remove('hidden');
+        }
+
+        items.forEach(item => {
+            item.addEventListener('click', function() {
+                const name = this.getAttribute('data-name');
+                const price = this.getAttribute('data-price');
+                cart.push({ name, price });
+                localStorage.setItem('cart', JSON.stringify(cart));
+                cartCount.textContent = cart.length;
+                cartCount.classList.remove('hidden');
+            });
+        });
+
+        cartLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            window.location.href = 'daftar-laundry.php';
+        });
+    });
+</script>
+
 <!-- ═══════════════════════════ PRICE LIST SECTION ═══════════════════════════ -->
 <section class="py-12 bg-surface">
     <div class="max-w-4xl mx-auto px-4 sm:px-8 space-y-12">
@@ -37,11 +76,13 @@ require_once __DIR__ . '/header.php';
                             <?php foreach ($category['items'] as $item): ?>
                                 <tr class="hover:bg-surface-container transition-colors">
                                     <td class="py-3 px-4 sm:py-4 sm:px-6">
-                                        <p class="text-sm sm:text-base font-medium text-primary"><?= $item['name'] ?></p>
+                                        <p class="text-sm sm:text-base font-medium text-primary"> <?= $item['name'] ?> </p>
                                     </td>
-                                    <td
-                                        class="py-3 px-4 sm:py-4 sm:px-6 text-right font-bold text-secondary-container whitespace-nowrap text-sm sm:text-base">
+                                    <td class="py-3 px-4 sm:py-4 sm:px-6 text-right font-bold text-secondary-container whitespace-nowrap text-sm sm:text-base">
                                         <?= $item['price'] ?>
+                                    </td>
+                                    <td class="py-3 px-4 sm:py-4 sm:px-6 text-right">
+                                        <button class="add-to-cart bg-primary text-white px-4 py-2 rounded-full hover:bg-primary-dark" data-name="<?= htmlspecialchars($item['name']) ?>" data-price="<?= htmlspecialchars($item['price']) ?>">Pilih</button>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>
