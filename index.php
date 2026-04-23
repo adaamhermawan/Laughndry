@@ -115,13 +115,16 @@ require_once __DIR__ . '/header.php';
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 stagger-children">
             <?php foreach ($services as $svc): ?>
-                <a href="harga.php#<?= isset($svc['id']) ? $svc['id'] : '' ?>" class="block bg-surface-container-lowest p-8 sm:p-10 rounded-3xl card-hover stagger-item cursor-pointer">
+                <a href="harga.php#<?= isset($svc['id']) ? $svc['id'] : '' ?>" class="group relative block bg-surface-container-lowest p-8 sm:p-10 rounded-3xl card-hover stagger-item cursor-pointer overflow-hidden">
                     <div
-                        class="w-16 h-16 bg-secondary-fixed flex items-center justify-center rounded-full mb-8 icon-bounce">
+                        class="w-16 h-16 bg-secondary-fixed flex items-center justify-center rounded-full mb-8 icon-bounce relative z-10">
                         <span class="material-symbols-outlined text-secondary text-3xl"><?= $svc['icon'] ?></span>
                     </div>
-                    <h3 class="text-xl font-bold text-primary mb-4"><?= $svc['title'] ?></h3>
-                    <p class="text-on-surface-variant leading-relaxed"><?= $svc['desc'] ?></p>
+                    <h3 class="text-xl font-bold text-primary mb-4 relative z-10"><?= $svc['title'] ?></h3>
+                    <p class="text-on-surface-variant leading-relaxed relative z-10"><?= $svc['desc'] ?></p>
+                    <div class="absolute bottom-6 right-6 w-10 h-10 bg-secondary-container/10 flex items-center justify-center rounded-full opacity-0 group-hover:opacity-100 transform translate-x-2 group-hover:translate-x-0 transition-all duration-300 z-10">
+                        <span class="material-symbols-outlined text-secondary font-bold text-xl">arrow_forward</span>
+                    </div>
                 </a>
             <?php endforeach; ?>
         </div>
