@@ -29,6 +29,7 @@ $about_cards = [
 // ─── Service Cards ──────────────────────────────────────────────────────────
 $services = [
     [
+        'id' => 'cuci-setrika',
         'icon' => 'iron',
         'title' => 'Cuci - Setrika (Min 3kg)',
         'desc' => 'Paket lengkap perawatan pakaian
@@ -37,6 +38,7 @@ siap pakai.',
 
     ],
     [
+        'id' => 'hanya-setrika',
         'icon' => 'styler',
         'title' => 'Hanya Setrika (Min 3kg)',
         'desc' => 'Cucian sudah bersih? Serahkan urusan
@@ -45,6 +47,7 @@ tenaga ahli kami.',
 
     ],
     [
+        'id' => 'cuci-lipat',
         'icon' => 'checkroom',
         'title' => 'Cuci - Lipat (Min 3kg)',
         'desc' => 'Solusi praktis untuk pakaian santai.
@@ -53,6 +56,7 @@ rapi.',
     ],
 
     [
+        'id' => 'cuci-kering',
         'icon' => 'local_laundry_service',
         'title' => 'Cuci - Kering',
         'desc' => 'Layanan cepat kering untuk Anda yang
@@ -60,6 +64,7 @@ memiliki mobilitas tinggi dan butuh hasil
 instan.',
     ],
     [
+        'id' => 'self-service',
         'icon' => 'layers',
         'title' => 'Self Service',
         'desc' => 'Gunakan mesin modern kami secara
@@ -67,6 +72,7 @@ mandiri. Lebih ekonomis dan sesuai
 privasi Anda.',
     ],
     [
+        'id' => 'satuan-bedcover-seprei',
         'icon' => 'bed',
         'title' => 'Satuan Bedcover Seprei',
         'desc' => 'Pembersihan mendalam untuk
@@ -74,6 +80,7 @@ perlengkapan tidur Anda agar istirahat
 tetap higienis.',
     ],
     [
+        'id' => 'satuan',
         'icon' => 'styler',
         'title' => 'Satuan',
         'desc' => 'Perawatan khusus untuk pakaian
@@ -81,6 +88,7 @@ branded, jas, gaun, atau item
 kesayangan lainnya.',
     ],
     [
+        'id' => 'dry-clean',
         'icon' => 'dry_cleaning',
         'title' => 'Dry Clean',
         'desc' => 'Pencucian tanpa air menggunakan
@@ -190,6 +198,7 @@ $nav_links = [
 // ─── Full Price List (harga.php) ───────────────────────────────────────────
 $full_price_list = [
     [
+        'id' => 'cuci-setrika',
         'category' => 'Cuci - Setrika Min 3 Kg',
         'desc' => 'Solusi lengkap untuk pakaian bersih, harum, dan rapi seketika. Minimal order 3kg.',
         'items' => [
@@ -202,6 +211,7 @@ $full_price_list = [
         ]
     ],
     [
+        'id' => 'hanya-setrika',
         'category' => 'Hanya Setrika Min 3 Kg',
         'desc' => 'Hilangkan kerutan membandel dengan uap panas presisi. Minimal order 3kg.',
         'items' => [
@@ -213,6 +223,7 @@ $full_price_list = [
         ]
     ],
     [
+        'id' => 'cuci-lipat',
         'category' => 'Cuci Lipat 3 Kg',
         'desc' => 'Pakaian kotor dicuci bersih, kering secara maksimal dengan mesin yang besar, lalu pelipatan rapi.',
         'items' => [
@@ -221,6 +232,7 @@ $full_price_list = [
         ]
     ],
     [
+        'id' => 'cuci-kering',
         'category' => 'Cuci Kering',
         'desc' => 'Pakaian kotor dicuci bersih lalu dikeringkan maksimal',
         'items' => [
@@ -231,6 +243,7 @@ $full_price_list = [
         ]
     ],
     [
+        'id' => 'self-service',
         'category' => 'Self Service',
         'desc' => 'Cuci dan keringkan mandiri tanpa lipat',
         'items' => [
@@ -239,6 +252,7 @@ $full_price_list = [
         ]
     ],
     [
+        'id' => 'dry-clean',
         'category' => 'Dry Clean',
         'desc' => 'Perawatan khusus tanpa air untuk pakaian bebas kerusakan',
         'items' => [
@@ -248,6 +262,7 @@ $full_price_list = [
         ]
     ],
     [
+        'id' => 'satuan-bedcover-seprei',
         'category' => 'Satuan Bedcover - Seprei',
         'desc' => 'Perawatan khusus yang detail',
         'items' => [
@@ -263,6 +278,7 @@ $full_price_list = [
         ]
     ],
     [
+        'id' => 'satuan',
         'category' => 'Satuan',
         'desc' => 'Detail perawatan pakaian harian',
         'items' => [
