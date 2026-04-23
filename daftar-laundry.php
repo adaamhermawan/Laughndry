@@ -79,6 +79,37 @@
         .cart-remove:hover {
             color: #b91c1c;
         }
+        .qty-control {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: #f3f4f6;
+            padding: 4px 8px;
+            border-radius: 8px;
+            margin-right: 8px;
+        }
+        .qty-btn {
+            background: #fff;
+            border: 1px solid #e5e7eb;
+            width: 28px;
+            height: 28px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-weight: bold;
+            color: #374151;
+            transition: all 0.2s;
+        }
+        .qty-btn:hover {
+            background: #e5e7eb;
+        }
+        .qty-value {
+            font-weight: 600;
+            min-width: 20px;
+            text-align: center;
+        }
         .cart-empty {
             text-align: center;
             color: #888;
@@ -220,6 +251,11 @@
     <script>
         // Ambil data keranjang dari localStorage
         let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        
+        // Inisialisasi properti qty jika belum ada
+        cart = cart.map(item => ({...item, qty: item.qty || 1}));
+        localStorage.setItem('cart', JSON.stringify(cart));
+
         const cartList = document.getElementById('cart-list');
         const cartEmpty = document.getElementById('cart-empty');
         const cartTotal = document.getElementById('cart-total');
@@ -240,7 +276,10 @@
                 document.getElementById('btn-checkout').style.display = 'block';
                 cart.forEach((item, idx) => {
                     let price = parseInt(item.price.replace(/[^0-9]/g, ''));
-                    total += price;
+                    let qty = item.qty || 1;
+                    let subtotal = price * qty;
+                    total += subtotal;
+
                     const li = document.createElement('li');
                     li.innerHTML = `
                         <div class="cart-img">
@@ -250,6 +289,11 @@
                             <div class="cart-name">${item.name}</div>
                             <div class="cart-price">Rp ${price.toLocaleString('id-ID')}</div>
                         </div>
+                        <div class="qty-control">
+                            <button class="qty-btn qty-minus" data-idx="${idx}">-</button>
+                            <span class="qty-value">${qty}</span>
+                            <button class="qty-btn qty-plus" data-idx="${idx}">+</button>
+                        </div>
                         <button class="cart-remove" title="Hapus" data-idx="${idx}"><span class="material-symbols-outlined">delete</span></button>
                     `;
                     cartList.appendChild(li);
@@ -258,11 +302,29 @@
             }
         }
 
-        // Event delegation untuk hapus barang
+        // Event delegation untuk hapus barang dan kuantitas
         cartList.addEventListener('click', function(e) {
-            if (e.target.closest('.cart-remove')) {
-                const idx = e.target.closest('.cart-remove').getAttribute('data-idx');
+            const btnRemove = e.target.closest('.cart-remove');
+            const btnMinus = e.target.closest('.qty-minus');
+            const btnPlus = e.target.closest('.qty-plus');
+
+            if (btnRemove) {
+                const idx = btnRemove.getAttribute('data-idx');
                 cart.splice(idx, 1);
+                localStorage.setItem('cart', JSON.stringify(cart));
+                renderCart();
+            } else if (btnMinus) {
+                const idx = btnMinus.getAttribute('data-idx');
+                if (cart[idx].qty > 1) {
+                    cart[idx].qty--;
+                } else {
+                    cart.splice(idx, 1);
+                }
+                localStorage.setItem('cart', JSON.stringify(cart));
+                renderCart();
+            } else if (btnPlus) {
+                const idx = btnPlus.getAttribute('data-idx');
+                cart[idx].qty = (cart[idx].qty || 1) + 1;
                 localStorage.setItem('cart', JSON.stringify(cart));
                 renderCart();
             }
@@ -305,10 +367,12 @@
             let orderItems = '';
             cart.forEach(item => {
                 let price = parseInt(item.price.replace(/[^0-9]/g, ''));
+                let qty = item.qty || 1;
+                let subtotal = price * qty;
                 orderItems += `
                     <div class="payment-summary-item">
-                        <span>${item.name}</span>
-                        <span>Rp ${price.toLocaleString('id-ID')}</span>
+                        <span>${item.name} (x${qty})</span>
+                        <span>Rp ${subtotal.toLocaleString('id-ID')}</span>
                     </div>
                 `;
             });
