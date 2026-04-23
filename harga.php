@@ -17,10 +17,10 @@ require_once __DIR__ . '/header.php';
 </section>
 
 <!-- Icon Keranjang Kuning dengan Notifikasi -->
-<div class="icon-container fixed bottom-4 right-4 z-50">
-    <a href="#" id="cart-link" class="relative">
-        <span class="material-symbols-outlined text-yellow-500 text-5xl font-bold">shopping_cart</span>
-        <span id="cart-count" class="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold w-6 h-6 flex items-center justify-center rounded-full hidden">0</span>
+<div class="icon-container fixed bottom-6 right-6 z-50">
+    <a href="#" id="cart-link" class="relative w-16 h-16 bg-secondary-fixed flex items-center justify-center rounded-full shadow-lg hover:scale-110 active:scale-95 transition-all cursor-pointer border border-secondary-fixed-dim/20">
+        <span class="material-symbols-outlined text-secondary text-3xl">shopping_cart</span>
+        <span id="cart-count" class="absolute -top-1 -right-1 bg-red-500 text-white text-xs font-bold w-6 h-6 flex items-center justify-center rounded-full shadow-md hidden">0</span>
     </a>
 </div>
 
@@ -31,20 +31,56 @@ require_once __DIR__ . '/header.php';
         const items = document.querySelectorAll('.add-to-cart');
         const cartLink = document.getElementById('cart-link');
         let cart = JSON.parse(localStorage.getItem('cart')) || [];
-        let count = cart.length;
-        if (count > 0) {
-            cartCount.textContent = count;
-            cartCount.classList.remove('hidden');
+        
+        function updateCartUI() {
+            let count = cart.length;
+            if (count > 0) {
+                cartCount.textContent = count;
+                cartCount.classList.remove('hidden');
+            } else {
+                cartCount.classList.add('hidden');
+            }
+
+            items.forEach(item => {
+                const name = item.getAttribute('data-name');
+                const row = item.closest('tr');
+                
+                const isSelected = cart.some(cartItem => cartItem.name === name);
+                
+                if (isSelected) {
+                    item.innerHTML = '<span class="material-symbols-outlined align-middle text-[18px] mr-1">check_circle</span>Terpilih';
+                    item.classList.remove('bg-primary', 'text-white', 'hover:bg-primary-dark');
+                    item.classList.add('bg-secondary-container', 'text-on-secondary-container', 'hover:opacity-90');
+                    if (row) row.classList.add('bg-surface-variant/50');
+                } else {
+                    item.innerHTML = 'Pilih';
+                    item.classList.remove('bg-secondary-container', 'text-on-secondary-container', 'hover:opacity-90');
+                    item.classList.add('bg-primary', 'text-white', 'hover:bg-primary-dark');
+                    if (row) row.classList.remove('bg-surface-variant/50');
+                }
+            });
         }
+
+        // Inisialisasi UI saat dimuat
+        updateCartUI();
 
         items.forEach(item => {
             item.addEventListener('click', function() {
                 const name = this.getAttribute('data-name');
                 const price = this.getAttribute('data-price');
-                cart.push({ name, price });
+                
+                const itemIndex = cart.findIndex(cartItem => cartItem.name === name);
+                
+                if (itemIndex > -1) {
+                    // Hapus jika sudah ada
+                    cart.splice(itemIndex, 1);
+                } else {
+                    // Tambah jika belum ada
+                    cart.push({ name, price });
+                }
+                
                 localStorage.setItem('cart', JSON.stringify(cart));
-                cartCount.textContent = cart.length;
-                cartCount.classList.remove('hidden');
+                updateCartUI();
             });
         });
 
