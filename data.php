@@ -30,7 +30,7 @@ $about_cards = [
 $services = [
     [
         'id' => 'cuci-setrika',
-        'icon' => 'iron',
+        'icon' => 'wash',
         'title' => 'Cuci - Setrika (Min 3kg)',
         'desc' => 'Paket lengkap perawatan pakaian
 harian Anda. Bersih maksimal dan rapi
@@ -39,7 +39,7 @@ siap pakai.',
     ],
     [
         'id' => 'hanya-setrika',
-        'icon' => 'styler',
+        'icon' => 'iron',
         'title' => 'Hanya Setrika (Min 3kg)',
         'desc' => 'Cucian sudah bersih? Serahkan urusan
 menyetrika yang melelahkan kepada
@@ -81,7 +81,7 @@ tetap higienis.',
     ],
     [
         'id' => 'satuan',
-        'icon' => 'styler',
+        'icon' => 'diamond',
         'title' => 'Satuan',
         'desc' => 'Perawatan khusus untuk pakaian
 branded, jas, gaun, atau item
@@ -324,8 +324,8 @@ $full_price_list = [
 
 // ─── Contact Info ───────────────────────────────────────────────────────────
 $contact_info = [
-    ['icon' => 'phone', 'text' => '+62 852-2096-6656'],
-    ['icon' => 'mail', 'text' => 'laughndry@gmail.com'],
-    ['icon' => 'svg:instagram', 'text' => '@laughndry'],
-    ['icon' => 'schedule', 'text' => 'Buka 24 Jam'],
+    ['icon' => 'phone', 'text' => '+62 852-2096-6656', 'href' => 'https://wa.me/6285220966656'],
+    ['icon' => 'mail', 'text' => 'laughndry@gmail.com', 'href' => ''],
+    ['icon' => 'svg:instagram', 'text' => '@laughndry', 'href' => 'https://instagram.com/laughndry'],
+    ['icon' => 'schedule', 'text' => 'Buka 24 Jam', 'href' => ''],
 ];

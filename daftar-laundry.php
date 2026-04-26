@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,28 +12,36 @@
             background: #f8fafc;
             font-family: 'Segoe UI', Arial, sans-serif;
         }
+
         .cart-container {
             max-width: 540px;
             margin: 40px auto;
             background: #fff;
             border-radius: 18px;
-            box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
             padding: 32px 24px 24px 24px;
         }
+
         .cart-title {
             display: flex;
             align-items: center;
             gap: 12px;
             font-size: 2rem;
-            font-weight: bold;
-            color: #fbbf24;
+            font-weight: 900;
+            color: #00433a;
             margin-bottom: 18px;
         }
+
+        .cart-title .material-symbols-outlined {
+            color: #fbad48;
+        }
+
         .cart-list {
             list-style: none;
             padding: 0;
             margin: 0 0 24px 0;
         }
+
         .cart-list li {
             display: flex;
             align-items: center;
@@ -41,9 +50,11 @@
             border-bottom: 1px solid #f3f4f6;
             font-size: 1.1rem;
         }
+
         .cart-list li:last-child {
             border-bottom: none;
         }
+
         .cart-img {
             width: 56px;
             height: 56px;
@@ -55,18 +66,22 @@
             font-size: 2rem;
             color: #a3a3a3;
         }
+
         .cart-info {
             flex: 1;
         }
+
         .cart-name {
             font-weight: 500;
             color: #222;
         }
+
         .cart-price {
             color: #f59e0b;
             font-weight: bold;
             margin-top: 2px;
         }
+
         .cart-remove {
             background: none;
             border: none;
@@ -76,9 +91,11 @@
             padding: 4px;
             transition: color 0.2s;
         }
+
         .cart-remove:hover {
             color: #b91c1c;
         }
+
         .qty-control {
             display: flex;
             align-items: center;
@@ -88,6 +105,7 @@
             border-radius: 8px;
             margin-right: 8px;
         }
+
         .qty-btn {
             background: #fff;
             border: 1px solid #e5e7eb;
@@ -102,19 +120,23 @@
             color: #374151;
             transition: all 0.2s;
         }
+
         .qty-btn:hover {
             background: #e5e7eb;
         }
+
         .qty-value {
             font-weight: 600;
             min-width: 20px;
             text-align: center;
         }
+
         .cart-empty {
             text-align: center;
             color: #888;
             margin: 32px 0;
         }
+
         .cart-total {
             text-align: right;
             font-size: 1.2rem;
@@ -122,6 +144,7 @@
             color: #374151;
             margin-bottom: 24px;
         }
+
         .cart-btn {
             display: inline-block;
             background: #fbbf24;
@@ -131,16 +154,19 @@
             border-radius: 999px;
             text-decoration: none;
             transition: background 0.2s;
-            box-shadow: 0 2px 8px rgba(251,191,36,0.12);
+            box-shadow: 0 2px 8px rgba(251, 191, 36, 0.12);
         }
+
         .cart-btn:hover {
             background: #f59e0b;
         }
+
         .btn-group {
             display: flex;
             gap: 12px;
             margin-top: 16px;
         }
+
         .btn-group .cart-btn {
             flex: 1;
             text-align: center;
@@ -150,20 +176,25 @@
             font-size: 1rem;
             box-sizing: border-box;
         }
+
         .btn-primary {
-            background: #10b981;
-            box-shadow: 0 2px 8px rgba(16,185,129,0.12);
+            background: #00433a;
+            box-shadow: 0 2px 8px rgba(0, 67, 58, 0.2);
         }
+
         .btn-primary:hover {
-            background: #059669;
+            background: #005046;
         }
+
         .btn-secondary {
             background: #9ca3af;
-            box-shadow: 0 2px 8px rgba(156,163,175,0.12);
+            box-shadow: 0 2px 8px rgba(156, 163, 175, 0.12);
         }
+
         .btn-secondary:hover {
             background: #6b7280;
         }
+
         .payment-summary {
             background: #f9fafb;
             border-radius: 12px;
@@ -171,12 +202,14 @@
             margin-bottom: 20px;
             border: 1px solid #e5e7eb;
         }
+
         .payment-summary-item {
             display: flex;
             justify-content: space-between;
             margin-bottom: 8px;
             color: #4b5563;
         }
+
         .payment-summary-total {
             display: flex;
             justify-content: space-between;
@@ -187,15 +220,18 @@
             color: #111827;
             font-size: 1.1rem;
         }
+
         .form-group {
             margin-bottom: 24px;
         }
+
         .form-label {
             display: block;
             font-weight: 600;
             margin-bottom: 8px;
             color: #374151;
         }
+
         .form-select {
             width: 100%;
             padding: 12px;
@@ -208,6 +244,7 @@
         }
     </style>
 </head>
+
 <body>
     <div class="cart-container">
         <!-- Main Cart View -->
@@ -251,9 +288,9 @@
     <script>
         // Ambil data keranjang dari localStorage
         let cart = JSON.parse(localStorage.getItem('cart')) || [];
-        
+
         // Inisialisasi properti qty jika belum ada
-        cart = cart.map(item => ({...item, qty: item.qty || 1}));
+        cart = cart.map(item => ({ ...item, qty: item.qty || 1 }));
         localStorage.setItem('cart', JSON.stringify(cart));
 
         const cartList = document.getElementById('cart-list');
@@ -277,16 +314,20 @@
                 cart.forEach((item, idx) => {
                     let price = parseInt(item.price.replace(/[^0-9]/g, ''));
                     let qty = item.qty || 1;
+                    let icon = item.icon || 'local_laundry_service';
                     let subtotal = price * qty;
                     total += subtotal;
 
                     const li = document.createElement('li');
                     li.innerHTML = `
                         <div class="cart-img">
-                            <span class="material-symbols-outlined">local_laundry_service</span>
+                            <span class="material-symbols-outlined" style="color: #00433a;">${icon}</span>
                         </div>
                         <div class="cart-info">
-                            <div class="cart-name">${item.name}</div>
+                            <div class="cart-name">
+                                ${item.name}
+                                ${item.category ? `<span style="display: block; font-size: 0.75rem; color: #6b7280; margin-top: 2px; font-weight: normal;">${item.category}</span>` : ''}
+                            </div>
                             <div class="cart-price">Rp ${price.toLocaleString('id-ID')}</div>
                         </div>
                         <div class="qty-control">
@@ -303,7 +344,7 @@
         }
 
         // Event delegation untuk hapus barang dan kuantitas
-        cartList.addEventListener('click', function(e) {
+        cartList.addEventListener('click', function (e) {
             const btnRemove = e.target.closest('.cart-remove');
             const btnMinus = e.target.closest('.qty-minus');
             const btnPlus = e.target.closest('.qty-plus');
@@ -370,9 +411,12 @@
                 let qty = item.qty || 1;
                 let subtotal = price * qty;
                 orderItems += `
-                    <div class="payment-summary-item">
-                        <span>${item.name} (x${qty})</span>
-                        <span>Rp ${subtotal.toLocaleString('id-ID')}</span>
+                    <div class="payment-summary-item" style="align-items: flex-start;">
+                        <div>
+                            <div style="font-weight: 500;">${item.name} (x${qty})</div>
+                            ${item.category ? `<div style="font-size: 0.75rem; color: #6b7280; margin-top: 2px;">${item.category}</div>` : ''}
+                        </div>
+                        <span style="white-space: nowrap; margin-left: 12px;">Rp ${subtotal.toLocaleString('id-ID')}</span>
                     </div>
                 `;
             });
@@ -386,4 +430,5 @@
         }
     </script>
 </body>
+
 </html>

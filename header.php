@@ -110,18 +110,19 @@ $order_href = $is_harga ? 'index.php#layanan' : '#layanan';
 
             <!-- Desktop links -->
             <div class="hidden md:flex items-center gap-8">
-                <?php foreach ($nav_links as $link): 
+                <?php foreach ($nav_links as $link):
                     $href = $link['href'];
                     if ($is_harga && $href !== 'harga.php') {
                         $href = 'index.php' . $href;
                     }
                     $is_active = ($is_harga && $link['label'] === 'Harga') || (!$is_harga && $link['active']);
-                ?>
+                    ?>
                     <a href="<?= $href ?>" id="<?= $link['id'] ?>"
                         class="nav-link-item hover:scale-105 transition-all duration-300 relative pb-1
                         <?= $is_active ? 'text-emerald-900 font-bold active-link' : 'text-emerald-800/70 hover:text-emerald-900' ?>">
                         <?= $link['label'] ?>
-                        <span class="nav-indicator absolute left-0 bottom-0 w-full h-[2px] bg-secondary-container transition-transform origin-left duration-300 <?= $is_active ? 'scale-x-100' : 'scale-x-0' ?>"></span>
+                        <span
+                            class="nav-indicator absolute left-0 bottom-0 w-full h-[2px] bg-secondary-container transition-transform origin-left duration-300 <?= $is_active ? 'scale-x-100' : 'scale-x-0' ?>"></span>
                     </a>
                 <?php endforeach; ?>
             </div>
@@ -148,13 +149,13 @@ $order_href = $is_harga ? 'index.php#layanan' : '#layanan';
         <div id="mobile-menu"
             class="md:hidden max-h-0 overflow-hidden transition-all duration-500 ease-in-out bg-white/95 backdrop-blur-lg">
             <div class="flex flex-col gap-2 px-6 py-4">
-                <?php foreach ($nav_links as $link): 
+                <?php foreach ($nav_links as $link):
                     $href = $link['href'];
                     if ($is_harga && $href !== 'harga.php') {
                         $href = 'index.php' . $href;
                     }
                     $is_active = ($is_harga && $link['label'] === 'Harga') || (!$is_harga && $link['active']);
-                ?>
+                    ?>
                     <a href="<?= $href ?>" class="mobile-nav-link py-3 px-4 rounded-xl text-lg font-semibold
                           <?= $is_active ? 'text-primary bg-primary-fixed/30' : 'text-on-surface-variant hover:bg-surface-container' ?>
                           transition-colors duration-200">
@@ -169,4 +170,4 @@ $order_href = $is_harga ? 'index.php#layanan' : '#layanan';
     </nav>
 
     <!-- Spacer to compensate for fixed nav -->
-    <div class="h-[72px]"></div>
+    <div class="h-[80px]"></div>
