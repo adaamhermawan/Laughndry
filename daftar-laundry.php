@@ -206,6 +206,76 @@
             background-color: white;
             box-sizing: border-box;
         }
+        /* Customer Info Form */
+        .customer-info-section {
+            background: #f9fafb;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 24px;
+            border: 1px solid #e5e7eb;
+        }
+        .customer-info-title {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 700;
+            color: #374151;
+            margin-bottom: 16px;
+            font-size: 1rem;
+        }
+        .customer-info-title .material-symbols-outlined {
+            color: #f59e0b;
+            font-size: 22px;
+        }
+        .form-input {
+            width: 100%;
+            padding: 12px 14px;
+            border-radius: 10px;
+            border: 2px solid #e5e7eb;
+            font-size: 1rem;
+            font-family: inherit;
+            background-color: #fff;
+            box-sizing: border-box;
+            transition: border-color 0.2s, box-shadow 0.2s;
+            outline: none;
+        }
+        .form-input:focus {
+            border-color: #10b981;
+            box-shadow: 0 0 0 3px rgba(16,185,129,0.12);
+        }
+        .form-input.error {
+            border-color: #ef4444;
+            box-shadow: 0 0 0 3px rgba(239,68,68,0.1);
+        }
+        .form-input::placeholder {
+            color: #9ca3af;
+        }
+        .input-group {
+            margin-bottom: 14px;
+        }
+        .input-group:last-child {
+            margin-bottom: 0;
+        }
+        .input-label {
+            display: block;
+            font-weight: 600;
+            font-size: 0.85rem;
+            color: #4b5563;
+            margin-bottom: 6px;
+        }
+        .input-error-msg {
+            color: #ef4444;
+            font-size: 0.8rem;
+            margin-top: 4px;
+            display: none;
+        }
+        .input-error-msg.show {
+            display: block;
+        }
+        textarea.form-input {
+            resize: vertical;
+            min-height: 70px;
+        }
         /* New Payment Gateway Styles */
         .payment-methods {
             display: grid;
@@ -415,10 +485,34 @@
                 <span class="material-symbols-outlined" style="font-size:2.2rem;">payments</span>
                 Checkout
             </div>
+            <!-- Customer Info Form -->
+            <div class="customer-info-section">
+                <div class="customer-info-title">
+                    <span class="material-symbols-outlined">person</span>
+                    Data Pelanggan
+                </div>
+                <div class="input-group">
+                    <label class="input-label" for="customer-name">Nama Lengkap</label>
+                    <input type="text" class="form-input" id="customer-name" placeholder="Masukkan nama lengkap Anda">
+                    <div class="input-error-msg" id="error-name">Nama wajib diisi</div>
+                </div>
+                <div class="input-group">
+                    <label class="input-label" for="customer-phone">Nomor Telepon</label>
+                    <input type="tel" class="form-input" id="customer-phone" placeholder="Contoh: 08123456789">
+                    <div class="input-error-msg" id="error-phone">Nomor telepon wajib diisi</div>
+                </div>
+                <div class="input-group">
+                    <label class="input-label" for="customer-address">Alamat</label>
+                    <textarea class="form-input" id="customer-address" placeholder="Masukkan alamat lengkap Anda" rows="3"></textarea>
+                    <div class="input-error-msg" id="error-address">Alamat wajib diisi</div>
+                </div>
+            </div>
+
             <div id="payment-summary" class="payment-summary">
                 <!-- Summary inserted via JS -->
             </div>
-            
+
+
             <div class="form-group">
                 <label class="form-label">Pilih Metode Pembayaran</label>
                 <div class="payment-methods">
@@ -600,6 +694,40 @@
         });
 
         btnConfirm.addEventListener('click', () => {
+            // Validate customer info
+            const name = document.getElementById('customer-name');
+            const phone = document.getElementById('customer-phone');
+            const address = document.getElementById('customer-address');
+            let valid = true;
+
+            // Reset errors
+            [name, phone, address].forEach(el => {
+                el.classList.remove('error');
+            });
+            document.querySelectorAll('.input-error-msg').forEach(el => el.classList.remove('show'));
+
+            if (!name.value.trim()) {
+                name.classList.add('error');
+                document.getElementById('error-name').classList.add('show');
+                valid = false;
+            }
+            if (!phone.value.trim()) {
+                phone.classList.add('error');
+                document.getElementById('error-phone').classList.add('show');
+                valid = false;
+            }
+            if (!address.value.trim()) {
+                address.classList.add('error');
+                document.getElementById('error-address').classList.add('show');
+                valid = false;
+            }
+
+            if (!valid) {
+                // Scroll to the first error
+                document.querySelector('.form-input.error').focus();
+                return;
+            }
+
             // Tampilkan modal sukses
             document.getElementById('success-modal').classList.add('show');
         });
@@ -647,6 +775,10 @@
             localStorage.removeItem('cart');
             cart = [];
             renderCart();
+            // Reset customer form
+            document.getElementById('customer-name').value = '';
+            document.getElementById('customer-phone').value = '';
+            document.getElementById('customer-address').value = '';
             document.getElementById('payment-view').style.display = 'none';
             document.getElementById('cart-view').style.display = 'block';
             window.location.href = 'index.php';

@@ -33,7 +33,7 @@ require_once __DIR__ . '/header.php';
 <header
     class="relative overflow-hidden pt-8 sm:pt-12 pb-16 sm:pb-24 px-4 sm:px-8 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
     <div class="z-10">
-        <span
+        <br/><span
             class="inline-block px-4 py-1.5 rounded-full bg-primary-fixed text-primary text-xs font-black tracking-widest mb-6 hero-text-animate">
             #1 LAUNDRY DI SERPONG
         </span>

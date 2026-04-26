@@ -81,7 +81,7 @@ tetap higienis.',
     ],
     [
         'id' => 'satuan',
-        'icon' => 'styler',
+        'icon' => 'apparel',
         'title' => 'Satuan',
         'desc' => 'Perawatan khusus untuk pakaian
 branded, jas, gaun, atau item
