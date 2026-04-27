@@ -228,7 +228,7 @@
         .form-label {
             display: block;
             font-weight: 600;
-            margin-bottom: 8px;
+            margin-bottom: 12px;
             color: #374151;
         }
 
@@ -241,6 +241,260 @@
             font-family: inherit;
             background-color: white;
             box-sizing: border-box;
+        }
+        /* Customer Info Form */
+        .customer-info-section {
+            background: #f9fafb;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 24px;
+            border: 1px solid #e5e7eb;
+        }
+        .customer-info-title {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 700;
+            color: #374151;
+            margin-bottom: 16px;
+            font-size: 1rem;
+        }
+        .customer-info-title .material-symbols-outlined {
+            color: #f59e0b;
+            font-size: 22px;
+        }
+        .form-input {
+            width: 100%;
+            padding: 12px 14px;
+            border-radius: 10px;
+            border: 2px solid #e5e7eb;
+            font-size: 1rem;
+            font-family: inherit;
+            background-color: #fff;
+            box-sizing: border-box;
+            transition: border-color 0.2s, box-shadow 0.2s;
+            outline: none;
+        }
+        .form-input:focus {
+            border-color: #10b981;
+            box-shadow: 0 0 0 3px rgba(16,185,129,0.12);
+        }
+        .form-input.error {
+            border-color: #ef4444;
+            box-shadow: 0 0 0 3px rgba(239,68,68,0.1);
+        }
+        .form-input::placeholder {
+            color: #9ca3af;
+        }
+        .input-group {
+            margin-bottom: 14px;
+        }
+        .input-group:last-child {
+            margin-bottom: 0;
+        }
+        .input-label {
+            display: block;
+            font-weight: 600;
+            font-size: 0.85rem;
+            color: #4b5563;
+            margin-bottom: 6px;
+        }
+        .input-error-msg {
+            color: #ef4444;
+            font-size: 0.8rem;
+            margin-top: 4px;
+            display: none;
+        }
+        .input-error-msg.show {
+            display: block;
+        }
+        textarea.form-input {
+            resize: vertical;
+            min-height: 70px;
+        }
+        /* New Payment Gateway Styles */
+        .payment-methods {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+        .payment-method-card {
+            cursor: pointer;
+            position: relative;
+        }
+        .payment-method-card input {
+            display: none;
+        }
+        .payment-method-card .card-content {
+            border: 2px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.2s;
+            background: #fff;
+            text-align: center;
+            height: 100%;
+            box-sizing: border-box;
+        }
+        .payment-method-card input:checked + .card-content {
+            border-color: #10b981;
+            background: #ecfdf5;
+            box-shadow: 0 4px 12px rgba(16,185,129,0.1);
+        }
+        .payment-method-card .icon {
+            font-size: 2.5rem;
+            color: #9ca3af;
+            transition: color 0.2s;
+        }
+        .payment-method-card input:checked + .card-content .icon {
+            color: #10b981;
+        }
+        .payment-method-card .card-content span:last-child {
+            font-weight: 600;
+            color: #4b5563;
+        }
+        .payment-method-card input:checked + .card-content span:last-child {
+            color: #065f46;
+        }
+
+        .payment-details-box {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 24px;
+            text-align: center;
+            display: none;
+        }
+        .payment-details-box.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .qr-placeholder {
+            width: 200px;
+            height: 200px;
+            background: #fff;
+            border: 2px dashed #cbd5e1;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+            flex-direction: column;
+            color: #64748b;
+        }
+
+        .va-number {
+            font-size: 1.5rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+            color: #0f172a;
+            background: #fff;
+            padding: 12px 24px;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+            margin: 12px 0;
+            display: inline-block;
+        }
+
+        .copy-btn {
+            background: #f1f5f9;
+            border: 1px solid #cbd5e1;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            color: #475569;
+            font-size: 0.95rem;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+        }
+        .copy-btn:hover {
+            background: #e2e8f0;
+            color: #1e293b;
+        }
+
+        /* Success Modal */
+        .modal-overlay {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+            backdrop-filter: blur(4px);
+        }
+        .modal-overlay.show {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .success-modal {
+            background: #fff;
+            border-radius: 24px;
+            padding: 40px;
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+            transform: scale(0.9);
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .modal-overlay.show .success-modal {
+            transform: scale(1);
+        }
+        .success-icon {
+            width: 80px;
+            height: 80px;
+            background: #10b981;
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            margin: 0 auto 24px;
+            box-shadow: 0 0 0 10px #ecfdf5;
+        }
+        .success-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #111827;
+            margin-bottom: 12px;
+        }
+        .success-message {
+            color: #6b7280;
+            margin-bottom: 32px;
+            line-height: 1.5;
+        }
+        .success-btn {
+            background: #10b981;
+            color: #fff;
+            border: none;
+            padding: 14px 32px;
+            border-radius: 999px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            cursor: pointer;
+            width: 100%;
+            transition: background 0.2s;
+            box-shadow: 0 4px 12px rgba(16,185,129,0.2);
+        }
+        .success-btn:hover {
+            background: #059669;
         }
     </style>
 </head>
@@ -258,7 +512,7 @@
             <div class="cart-total" id="cart-total"></div>
             <div class="btn-group">
                 <a href="harga.php" class="cart-btn">Tambah Pesanan</a>
-                <button id="btn-checkout" class="cart-btn btn-primary" style="display: none;">Pembayaran</button>
+                <button id="btn-checkout" class="cart-btn btn-primary" style="display: none;">Checkout</button>
             </div>
         </div>
 
@@ -266,25 +520,112 @@
         <div id="payment-view" style="display: none;">
             <div class="cart-title">
                 <span class="material-symbols-outlined" style="font-size:2.2rem;">payments</span>
-                Pembayaran
+                Checkout
             </div>
+            <!-- Customer Info Form -->
+            <div class="customer-info-section">
+                <div class="customer-info-title">
+                    <span class="material-symbols-outlined">person</span>
+                    Data Pelanggan
+                </div>
+                <div class="input-group">
+                    <label class="input-label" for="customer-name">Nama Lengkap</label>
+                    <input type="text" class="form-input" id="customer-name" placeholder="Masukkan nama lengkap Anda">
+                    <div class="input-error-msg" id="error-name">Nama wajib diisi</div>
+                </div>
+                <div class="input-group">
+                    <label class="input-label" for="customer-phone">Nomor Telepon</label>
+                    <input type="tel" class="form-input" id="customer-phone" placeholder="Contoh: 08123456789">
+                    <div class="input-error-msg" id="error-phone">Nomor telepon wajib diisi</div>
+                </div>
+                <div class="input-group">
+                    <label class="input-label" for="customer-address">Alamat</label>
+                    <textarea class="form-input" id="customer-address" placeholder="Masukkan alamat lengkap Anda" rows="3"></textarea>
+                    <div class="input-error-msg" id="error-address">Alamat wajib diisi</div>
+                </div>
+            </div>
+
             <div id="payment-summary" class="payment-summary">
                 <!-- Summary inserted via JS -->
             </div>
+
+
             <div class="form-group">
-                <label class="form-label">Metode Pembayaran</label>
-                <select class="form-select" id="payment-method">
-                    <option value="qris">QRIS</option>
-                    <option value="transfer">Transfer Bank (BCA/Mandiri/BRI)</option>
-                    <option value="tunai">Tunai (Bayar di tempat)</option>
-                </select>
+                <label class="form-label">Pilih Metode Pembayaran</label>
+                <div class="payment-methods">
+                    <label class="payment-method-card">
+                        <input type="radio" name="payment_method" value="qris" checked onchange="updatePaymentDetails()">
+                        <div class="card-content">
+                            <span class="material-symbols-outlined icon">qr_code_scanner</span>
+                            <span>QRIS</span>
+                        </div>
+                    </label>
+                    <label class="payment-method-card">
+                        <input type="radio" name="payment_method" value="transfer" onchange="updatePaymentDetails()">
+                        <div class="card-content">
+                            <span class="material-symbols-outlined icon">account_balance</span>
+                            <span>Transfer Bank</span>
+                        </div>
+                    </label>
+                    <label class="payment-method-card">
+                        <input type="radio" name="payment_method" value="tunai" onchange="updatePaymentDetails()">
+                        <div class="card-content">
+                            <span class="material-symbols-outlined icon">payments</span>
+                            <span>Tunai</span>
+                        </div>
+                    </label>
+                </div>
             </div>
+
+            <!-- Payment Details Sub-sections -->
+            <div id="details-qris" class="payment-details-box active">
+                <p style="margin-bottom: 16px; color: #4b5563; font-size: 0.95rem;">Scan QR Code di bawah ini menggunakan aplikasi e-wallet Anda.</p>
+                <div style="background: white; padding: 16px; border-radius: 16px; display: inline-block; box-shadow: 0 4px 12px rgba(0,0,0,0.05); margin: 0 auto 16px; border: 1px solid #e2e8f0;">
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=Laughndry_Payment" alt="QRIS Barcode" style="width: 200px; height: 200px; display: block; border-radius: 8px;">
+                    <div style="margin-top: 12px; font-weight: bold; color: #1e293b; font-size: 1.1rem; text-align: center; display: flex; align-items: center; justify-content: center; gap: 6px;">
+                        <span class="material-symbols-outlined" style="color: #10b981; font-size: 20px;">verified_user</span>
+                        QRIS Laughndry
+                    </div>
+                </div>
+                <p style="font-weight: bold; color: #10b981; font-size: 1.2rem;">Total: <span class="qris-total"></span></p>
+            </div>
+
+            <div id="details-transfer" class="payment-details-box">
+                <select class="form-select" id="bank-selector" style="margin-bottom: 16px;" onchange="updateBankDetails()">
+                    <option value="BCA">BCA Virtual Account</option>
+                    <option value="Mandiri">Mandiri Virtual Account</option>
+                    <option value="BRI">BRI Virtual Account</option>
+                </select>
+                <p style="color: #4b5563; margin-bottom: 8px; font-size: 0.95rem;">Nomor Virtual Account <span id="bank-name">BCA</span>:</p>
+                <div class="va-number" id="va-number">8290 1234 5678</div>
+                <br>
+                <button class="copy-btn" onclick="copyVA()"><span class="material-symbols-outlined" style="font-size: 18px; margin-right: 6px;">content_copy</span>Salin Nomor VA</button>
+            </div>
+
+            <div id="details-tunai" class="payment-details-box">
+                <span class="material-symbols-outlined" style="font-size: 48px; color: #f59e0b; margin-bottom: 12px;">info</span>
+                <p style="color: #4b5563; line-height: 1.5;">Anda dapat membayar dengan uang tunai saat kurir mengambil cucian Anda atau saat Anda mengantarkannya ke outlet kami.</p>
+            </div>
+
             <div class="btn-group">
                 <button id="btn-back" class="cart-btn btn-secondary">Kembali</button>
-                <button id="btn-confirm" class="cart-btn btn-primary">Konfirmasi Pesanan</button>
+                <button id="btn-confirm" class="cart-btn btn-primary">Bayar Sekarang</button>
             </div>
         </div>
     </div>
+
+    <!-- Success Modal -->
+    <div class="modal-overlay" id="success-modal">
+        <div class="success-modal">
+            <div class="success-icon">
+                <span class="material-symbols-outlined">check</span>
+            </div>
+            <div class="success-title">Pesanan Berhasil!</div>
+            <div class="success-message">Terima kasih telah mempercayakan cucian Anda kepada Laughndry. Kurir kami akan segera menjemput pakaian Anda.</div>
+            <button class="success-btn" onclick="closeSuccessModal()">Kembali ke Beranda</button>
+        </div>
+    </div>
+
     <script>
         // Ambil data keranjang dari localStorage
         let cart = JSON.parse(localStorage.getItem('cart')) || [];
@@ -385,6 +726,7 @@
             cartView.style.display = 'none';
             paymentView.style.display = 'block';
             renderPaymentSummary();
+            updatePaymentDetails();
         });
 
         btnBack.addEventListener('click', () => {
@@ -393,15 +735,95 @@
         });
 
         btnConfirm.addEventListener('click', () => {
-            const method = document.getElementById('payment-method');
-            const selectedText = method.options[method.selectedIndex].text;
-            alert(`Pesanan berhasil dikonfirmasi!\nMetode Pembayaran: ${selectedText}\nTerima kasih telah menggunakan Laughndry.`);
+            // Validate customer info
+            const name = document.getElementById('customer-name');
+            const phone = document.getElementById('customer-phone');
+            const address = document.getElementById('customer-address');
+            let valid = true;
+
+            // Reset errors
+            [name, phone, address].forEach(el => {
+                el.classList.remove('error');
+            });
+            document.querySelectorAll('.input-error-msg').forEach(el => el.classList.remove('show'));
+
+            if (!name.value.trim()) {
+                name.classList.add('error');
+                document.getElementById('error-name').classList.add('show');
+                valid = false;
+            }
+            if (!phone.value.trim()) {
+                phone.classList.add('error');
+                document.getElementById('error-phone').classList.add('show');
+                valid = false;
+            }
+            if (!address.value.trim()) {
+                address.classList.add('error');
+                document.getElementById('error-address').classList.add('show');
+                valid = false;
+            }
+
+            if (!valid) {
+                // Scroll to the first error
+                document.querySelector('.form-input.error').focus();
+                return;
+            }
+
+            // Tampilkan modal sukses
+            document.getElementById('success-modal').classList.add('show');
+        });
+
+        function updatePaymentDetails() {
+            const method = document.querySelector('input[name="payment_method"]:checked').value;
+            document.querySelectorAll('.payment-details-box').forEach(el => el.classList.remove('active'));
+            document.getElementById('details-' + method).classList.add('active');
+            
+            if(method === 'qris') {
+                document.querySelector('.qris-total').textContent = `Rp ${total.toLocaleString('id-ID')}`;
+            }
+        }
+
+        function updateBankDetails() {
+            const bank = document.getElementById('bank-selector').value;
+            document.getElementById('bank-name').textContent = bank;
+            const vaMap = {
+                'BCA': '8290 1234 5678',
+                'Mandiri': '8950 8765 4321',
+                'BRI': '8881 9999 0000'
+            };
+            document.getElementById('va-number').textContent = vaMap[bank];
+        }
+
+        function copyVA() {
+            const va = document.getElementById('va-number').textContent;
+            navigator.clipboard.writeText(va.replace(/\s/g, ''));
+            
+            const btn = document.querySelector('.copy-btn');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = `<span class="material-symbols-outlined" style="font-size: 18px; margin-right: 6px;">check</span>Tersalin!`;
+            btn.style.background = '#d1fae5';
+            btn.style.color = '#065f46';
+            btn.style.borderColor = '#10b981';
+            
+            setTimeout(() => {
+                btn.innerHTML = originalText;
+                btn.style = '';
+            }, 2000);
+        }
+
+        function closeSuccessModal() {
+            document.getElementById('success-modal').classList.remove('show');
             localStorage.removeItem('cart');
             cart = [];
             renderCart();
-            paymentView.style.display = 'none';
-            cartView.style.display = 'block';
-        });
+            // Reset customer form
+            document.getElementById('customer-name').value = '';
+            document.getElementById('customer-phone').value = '';
+            document.getElementById('customer-address').value = '';
+            document.getElementById('payment-view').style.display = 'none';
+            document.getElementById('cart-view').style.display = 'block';
+            window.location.href = 'index.php';
+        }
 
         function renderPaymentSummary() {
             paymentSummary.innerHTML = '';

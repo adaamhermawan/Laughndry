@@ -33,7 +33,7 @@ require_once __DIR__ . '/header.php';
 <header
     class="relative overflow-hidden pt-20 sm:pt-16 md:pt-12 pb-16 sm:pb-24 px-4 sm:px-8 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
     <div class="z-10">
-        <span
+        <br/><span
             class="inline-block px-4 py-1.5 rounded-full bg-primary-fixed text-primary text-xs font-black tracking-widest mb-6 hero-text-animate">
             #1 LAUNDRY DI SERPONG
         </span>
@@ -118,7 +118,7 @@ require_once __DIR__ . '/header.php';
                 <a href="harga.php#<?= isset($svc['id']) ? $svc['id'] : '' ?>"
                     class="block bg-surface-container-lowest p-8 sm:p-10 rounded-3xl card-hover stagger-item cursor-pointer group relative overflow-hidden flex flex-col h-full">
                     <div
-                        class="w-16 h-16 bg-secondary-fixed flex items-center justify-center rounded-full mb-8 icon-bounce">
+                        class="w-16 h-16 bg-secondary-fixed flex items-center justify-center rounded-full mb-8 icon-bounce relative z-10">
                         <span class="material-symbols-outlined text-secondary text-3xl"><?= $svc['icon'] ?></span>
                     </div>
                     <h3 class="text-xl font-bold text-primary mb-4"><?= $svc['title'] ?></h3>
