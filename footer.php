@@ -7,30 +7,30 @@
 ?>
 
 <?php if (!isset($is_harga) || !$is_harga): ?>
-<!-- ═══════════════════════════ CTA BANNER ═══════════════════════════ -->
-<section class="px-4 sm:px-8 pb-16 sm:pb-24 reveal">
-    <div
-        class="max-w-7xl mx-auto signature-gradient rounded-[2rem] sm:rounded-[3rem] p-8 sm:p-12 md:p-20 text-center relative overflow-hidden shadow-2xl">
-        <!-- Decorative blobs -->
-        <div class="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl">
-        </div>
+    <!-- ═══════════════════════════ CTA BANNER ═══════════════════════════ -->
+    <section class="px-4 sm:px-8 pb-16 sm:pb-24 reveal">
         <div
-            class="absolute bottom-0 left-0 w-64 h-64 bg-secondary-container/10 rounded-full translate-y-1/2 -translate-x-1/2 blur-3xl">
-        </div>
+            class="max-w-7xl mx-auto signature-gradient rounded-[2rem] sm:rounded-[3rem] p-8 sm:p-12 md:p-20 text-center relative overflow-hidden shadow-2xl">
+            <!-- Decorative blobs -->
+            <div class="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl">
+            </div>
+            <div
+                class="absolute bottom-0 left-0 w-64 h-64 bg-secondary-container/10 rounded-full translate-y-1/2 -translate-x-1/2 blur-3xl">
+            </div>
 
-        <h2 class="text-3xl sm:text-4xl md:text-5xl font-black text-on-primary mb-6 sm:mb-8 relative z-10">Siap
-            Merasakan Kesegaran?</h2>
-        <p
-            class="text-on-primary-container text-base sm:text-lg mb-8 sm:mb-12 max-w-2xl mx-auto relative z-10 leading-relaxed">
-            Jangan biarkan cucian kotor menumpuk dan merusak mood harimu. Hubungi kami sekarang dan biarkan para ahli
-            yang menanganinya!
-        </p>
-        <a href="<?= $order_href ?? '#layanan' ?>"
-            class="inline-block bg-secondary-container text-on-secondary-fixed px-8 sm:px-10 py-4 sm:py-5 rounded-full font-black text-lg sm:text-xl hover:scale-105 active:scale-95 transition-all relative z-10 shadow-lg">
-            Order Sekarang
-        </a>
-    </div>
-</section>
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-black text-on-primary mb-6 sm:mb-8 relative z-10">Siap
+                Merasakan Kesegaran?</h2>
+            <p
+                class="text-on-primary-container text-base sm:text-lg mb-8 sm:mb-12 max-w-2xl mx-auto relative z-10 leading-relaxed">
+                Jangan biarkan cucian kotor menumpuk dan merusak mood harimu. Hubungi kami sekarang dan biarkan para ahli
+                yang menanganinya!
+            </p>
+            <a href="<?= $order_href ?? '#layanan' ?>"
+                class="inline-block bg-secondary-container text-on-secondary-fixed px-8 sm:px-10 py-4 sm:py-5 rounded-full font-black text-lg sm:text-xl hover:scale-105 active:scale-95 transition-all relative z-10 shadow-lg">
+                Order Sekarang
+            </a>
+        </div>
+    </section>
 <?php endif; ?>
 
 <!-- ═══════════════════════════ FOOTER ═══════════════════════════ -->
@@ -52,38 +52,58 @@
             <h4 class="text-lg sm:text-xl font-bold mb-6 sm:mb-8 text-secondary-container">HUBUNGI KAMI</h4>
             <ul class="space-y-4">
                 <?php foreach ($contact_info as $ci): ?>
-                    <li class="flex items-center gap-3 text-emerald-100/80">
-                        <?php if ($ci['icon'] === 'svg:instagram'): ?>
-                            <svg class="text-secondary-container" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
-                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
-                            </svg>
-                        <?php else: ?>
-                            <span class="material-symbols-outlined text-secondary-container"><?= $ci['icon'] ?></span>
-                        <?php endif; ?>
-                        <?= $ci['text'] ?>
-                    </li>
-                <?php endforeach; ?>
-            </ul>
-        </div>
+                    <li>
+                        <?php if (!empty($ci['href'])): ?>
+                            <a href="<?= $ci['href'] ?>" target="_blank"
+                                class="flex items-center gap-3 text-emerald-100/80 hover:text-white transition-colors group">
+                            <?php else: ?>
+                                <div class="flex items-center gap-3 text-emerald-100/80">
+                                <?php endif; ?>
 
-        <!-- Map / Location -->
-        <div>
-            <h4 class="text-lg sm:text-xl font-bold mb-6 sm:mb-8 text-secondary-container">LOKASI KAMI</h4>
-            <div class="rounded-2xl overflow-hidden h-48 relative">
-                <img alt="Peta Lokasi" class="w-full h-full object-cover opacity-50"
-                    src="assets/gambar/Basemap image.png" />
-                <div class="absolute inset-0 bg-primary/40 flex items-center justify-center">
-                    <div
-                        class="bg-surface p-3 sm:p-4 rounded-xl text-primary text-xs sm:text-sm font-bold shadow-xl text-center">
-                        Jl. Raya Puspitek No 18b, Kel. Buaran, Kec. Serpong, Kota Tangerang Selatan
-                    </div>
+                                <?php if ($ci['icon'] === 'svg:instagram'): ?>
+                                    <svg class="text-secondary-container group-hover:scale-110 transition-transform"
+                                        xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                                    </svg>
+                                <?php else: ?>
+                                    <span
+                                        class="material-symbols-outlined text-secondary-container group-hover:scale-110 transition-transform"><?= $ci['icon'] ?></span>
+                                <?php endif; ?>
+
+                                <span><?= $ci['text'] ?></span>
+
+                                <?php if (!empty($ci['href'])): ?>
+                            </a>
+                        <?php else: ?>
+                </div>
+            <?php endif; ?>
+            </li>
+        <?php endforeach; ?>
+        </ul>
+    </div>
+
+    <!-- Map / Location -->
+    <div>
+        <h4 class="text-lg sm:text-xl font-bold mb-6 sm:mb-8 text-secondary-container">LOKASI KAMI</h4>
+        <a href="https://www.google.com/maps/place/LAUGHNDRY+Coin+Laundry/@-6.3473207,106.7004452,17z/data=!3m1!4b1!4m6!3m5!1s0x2e69e5017ad7bcfb:0xc6b784300ba9876a!8m2!3d-6.3473207!4d106.7030201!16s%2Fg%2F11whq56xpz?entry=ttu&g_ep=EgoyMDI2MDQyMi4wIKXMDSoASAFQAw%3D%3D"
+            target="_blank"
+            class="block rounded-2xl overflow-hidden h-48 relative group cursor-pointer shadow-lg hover:shadow-xl transition-all">
+            <img alt="Peta Lokasi"
+                class="w-full h-full object-cover opacity-50 group-hover:opacity-70 transition-opacity duration-300"
+                src="assets/gambar/Basemap image.png" />
+            <div
+                class="absolute inset-0 bg-primary/40 group-hover:bg-primary/20 transition-colors flex items-center justify-center">
+                <div
+                    class="bg-surface p-3 sm:p-4 rounded-xl text-primary text-xs sm:text-sm font-bold shadow-xl text-center max-w-[80%] group-hover:scale-105 transition-transform">
+                    Jl. Raya Puspitek No 18b, Kel. Buaran, Kec. Serpong, Kota Tangerang Selatan
                 </div>
             </div>
-        </div>
+        </a>
+    </div>
     </div>
 
     <!-- Copyright -->
@@ -171,7 +191,7 @@
                 window.scrollTo({ top: 0, behavior: 'smooth' });
                 return;
             }
-            
+
             const target = document.querySelector(href);
             if (target) {
                 e.preventDefault();
@@ -213,7 +233,7 @@
 
     window.addEventListener('scroll', () => {
         if (window.location.pathname.endsWith('harga.php')) return;
-        
+
         let current = '';
         const scrollY = window.scrollY;
 
@@ -233,19 +253,19 @@
         navItems.forEach(item => {
             const href = item.getAttribute('href');
             const indicator = item.querySelector('.nav-indicator');
-            
+
             // reset classes
             item.classList.remove('text-emerald-900', 'font-bold', 'active-link');
             item.classList.add('text-emerald-800/70');
-            if(indicator) {
+            if (indicator) {
                 indicator.classList.remove('scale-x-100');
                 indicator.classList.add('scale-x-0');
             }
-            
+
             if (href === '#' + current || (current === '' && href === '#')) {
                 item.classList.add('text-emerald-900', 'font-bold', 'active-link');
                 item.classList.remove('text-emerald-800/70');
-                if(indicator) {
+                if (indicator) {
                     indicator.classList.add('scale-x-100');
                     indicator.classList.remove('scale-x-0');
                 }
